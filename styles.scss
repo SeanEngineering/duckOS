@@ -1,0 +1,133 @@
+@use "./partials/mixins";
+@use "./partials/palette";
+@use "./partials/effects";
+
+
+body {
+    font-family: avenir, 'roboto', Arial, Helvetica, sans-serif;
+    height: 95vh;
+    width: 95vw;
+
+    @include mixins.flexing(column, space-between,center);
+
+    .container{
+        width: inherit;
+
+        @include mixins.flexing(column, center, center);
+        &__monitor{
+            height: 80vh;
+            width: 100vh;
+            @include mixins.flexing(column, space-between, center);
+            background-color: palette.$primary-background;
+            border: 20px black solid;
+            border-radius: 10px;
+      
+            &__nav{
+                @include mixins.flexing(row, space-between, center);
+                background-color: white;
+                opacity: 80%;
+                height: 30px;
+                width: inherit;
+                &__left{
+                    @include mixins.flexing(row, space-around, center);
+                    gap: 10px;
+                    font-size: 12px;
+                    margin-left: 10px;
+                    &__icon{
+                        text-decoration: none;
+                        color: black;
+                        border-radius: 3px;
+                        padding-left: 5px;
+                        padding-right: 5px;
+                        &--OS{
+                            font-weight: bold;
+                            transition: 0.2s;
+                            &--active{
+                                background-color: rgba($color: darkgray, $alpha: 0.5);
+                                transition: 0.1s;
+                            }
+                        }
+                        &--main{
+                            font-weight: bold;
+                        }
+
+                    }
+                    
+                }
+                &__right{
+                    @include mixins.flexing(row, space-around, center);
+                    gap: 5px;
+                    font-size: 12px;
+                    margin-right: 10px;
+                }
+            }
+            &__bar{
+                @include mixins.flexing(row, center, center);
+                height: 60px;
+                width: auto;
+                transition: 0.2s;
+                padding-left: 10px;
+                padding-right:10px;
+                margin-bottom: 5px;
+                background-color: white;
+                border-radius: 20px;
+                opacity: 100%;
+                &__icon{
+                    height: 50px;
+                    width: 50px;
+                    opacity: 100%;
+                    transition: 0.2s;
+                    &:hover{
+                        width: 100px;
+                        height: 100px;
+                        margin-bottom: 30px;
+                        transition: 0.2s;
+                    }
+                        
+                }
+            }
+            &__popup{
+                display: flex;
+                justify-content: left;
+                align-items: flex-start;
+                width: inherit;
+                height: inherit;
+                &__dropdown{
+                    height: auto;
+                    width: 130px;
+                    margin: 2px;
+                    background-color: rgba($color: white, $alpha: .7);
+                    border-radius: 5px;
+
+                    &__list{
+                        list-style-type: none;
+                        margin-left: 5px;
+                        margin-top: 5px;
+                        margin-bottom: 3px;
+                        padding-left: 2px;
+                       
+                        &__items{
+                            font-size: small;
+                            padding: 3px;
+                            &--dec {
+                                @include mixins.flexing(row, space-between, center);
+                                margin-right: 5px;
+                                border-bottom: 1px solid gray;
+                                border-top: 1px solid gray;
+                            }
+                            &--underline{
+                                margin-right: 5px;
+                                border-bottom: 1px solid gray;
+                            }
+                        }
+                    }
+                    
+                }
+                
+            }
+        }
+    }
+
+
+    
+}
