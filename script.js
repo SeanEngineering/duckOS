@@ -20,6 +20,9 @@ const showTime = () =>{
     if (seconds < 10){
         seconds = `0${seconds}`;
     }
+    if (minutes < 10){
+        minutes = `0${minutes}`;
+    }
 
     let dayText;
     switch (day){
@@ -56,6 +59,7 @@ setInterval(showTime,1000);
 showTime();
 
 const about = () =>{
+
     if (aboutThisPop.style.visibility == 'hidden'){
         aboutThisPop.style.visibility = 'visible';
         aboutThis.classList.toggle('container__monitor__nav__left__icon--OS--active')
@@ -63,11 +67,26 @@ const about = () =>{
         aboutThisPop.style.visibility = 'hidden';
         aboutThis.classList.toggle('container__monitor__nav__left__icon--OS--active')
     }
-    
+
+}
+
+const youtube = () =>{
+    if (youtubePop.style.visibility == 'hidden'){
+        youtubePop.style.visibility = 'visible';
+    } else {
+        youtubePop.style.visibility = 'hidden';
+    }
 
 }
 
 const aboutThis = document.querySelector('.container__monitor__nav__left__icon--OS');
 const aboutThisPop = document.querySelector('.container__monitor__popup__dropdown');
+const youtubePop = document.querySelector('.container__monitor__popup__youtube');
+const safari = document.getElementById('safari');
+
+safari.addEventListener('click', youtube)
 aboutThis.addEventListener('click', about)
+
+//youtubePop.style.visibility = 'hidden';
 aboutThisPop.style.visibility = 'hidden';
+

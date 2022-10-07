@@ -23,7 +23,7 @@
                     <div>Help</div>
                 </div>
                 <div class="container__monitor__nav__right">
-                    <div>🔍</div>
+                    <div id="search">🔍</div>
                     <div>ᯤ</div>
                     <div id="date">Fri 7 Oct</div>
                     <div id="time">5:36 pm</div>
@@ -45,7 +45,46 @@
                     </ul>
                 </div>
                 
+                <div class="container__monitor__popup__youtube">
+                    <div class="container__monitor__popup__youtube__web">
+                        <div class="container__monitor__popup__youtube__web__controls">
+                            <button class="container__monitor__popup__youtube__web__controls__button container__monitor__popup__youtube__web__controls__button--close">x</button>
+                            <button class="container__monitor__popup__youtube__web__controls__button container__monitor__popup__youtube__web__controls__button--minimise">-</button>
+                            <button class="container__monitor__popup__youtube__web__controls__button container__monitor__popup__youtube__web__controls__button--quack">◯</button>
+                        </div>
+
+                        <input class="container__monitor__popup__youtube__web__search" type="text" placeholder="https://www.youtube.com/watch?v=6k01DIVDJlY">
+
+                        <div class="container__monitor__popup__youtube__web__right">
+                            <img class="container__monitor__popup__youtube__web__right__icon" src="./icons/share.svg" alt="">
+                            <img class="container__monitor__popup__youtube__web__right__icon" src="./icons/plus.svg" alt="">
+                        </div>
+                    </div>
+                    
+                    <div class="container__monitor__popup__youtube__topBar">
+                        <div class="container__monitor__popup__youtube__topBar__left">
+                            <img class="container__monitor__popup__youtube__topBar__left__bars" src="./icons/bars.svg" alt="">
+                            <div class="container__monitor__popup__youtube__topBar__left__logo"><span class="container__monitor__popup__youtube__topBar__left__logo__icon">▶</span><span class="container__monitor__popup__youtube__topBar__left__logo__text">DuckTube</span></div>
+                        </div>
+
+                    </div>
+
+                    <div class="container__monitor__popup__youtube__content">
+                        <div class="container__monitor__popup__youtube__content__main">
+                            <iframe class="container__monitor__popup__youtube__content__main__video" src="https://www.youtube.com/embed/6k01DIVDJlY" title="True Facts About The Duck" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <div class="container__monitor__popup__youtube__content__main__desc">
+                            </div>
+                            <div class="container__monitor__popup__youtube__content__main__creator"></div>
+                            <div class="container__monitor__popup__youtube__content__main__comments"></div>
+
+                        </div>
+                        <div class="container__monitor__popup__youtube__content__second"></div>
+                    </div>
+                    
+                    
+                </div>
                 
+
 
             </div>
 
@@ -53,7 +92,7 @@
                 <a class="container__monitor__bar__icon" href="#"><img src="./icons/photos.svg" alt=""></a>
                 <a class="container__monitor__bar__icon" href="#"><img src="./icons/phone.svg" alt=""></a>
                 <a class="container__monitor__bar__icon" href="#"><img src="./icons/message.svg" alt=""></a>
-                <a class="container__monitor__bar__icon" href="#"><img src="./icons/safari.svg" alt=""></a>
+                <a class="container__monitor__bar__icon" id="safari" href="#"><img src="./icons/safari.svg" alt=""></a>
                 <a class="container__monitor__bar__icon" href="#"><img src="./icons/calc.svg" alt=""></a>
                 <a class="container__monitor__bar__icon" href="#"><img src="./icons/notes.svg" alt=""></a>
                 <a class="container__monitor__bar__icon" href="#"><img src="./icons/facetime.svg" alt=""></a>
