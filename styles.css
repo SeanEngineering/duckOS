@@ -1,3 +1,69 @@
+.calc-grid {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  margin: 5px;
+  min-height: auto;
+  grid-template-columns: repeat(4, 30px);
+  grid-template-rows: minmax(8px, auto) repeat(5, 30px);
+  border-radius: 5px;
+}
+.calc-grid__btn {
+  cursor: pointer;
+  font-size: 10px;
+  border: 1px solid white;
+  outline: none;
+  background-color: #7A7A7A;
+  opacity: 0.75;
+}
+.calc-grid__btn:hover {
+  opacity: 1;
+}
+.calc-grid__btn--span2 {
+  grid-column: span 2;
+}
+.calc-grid__btn--dgrey {
+  background-color: #516140;
+}
+.calc-grid__btn--org {
+  background-color: #F2A33C;
+}
+.calc-grid__oput {
+  grid-column: span 4;
+  background-color: black;
+  opacity: 75%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  flex-direction: column;
+  padding: 10px;
+  word-wrap: break-word;
+  word-break: break-all;
+  height: 40px;
+}
+.calc-grid__oput__prev {
+  color: white;
+  opacity: 75%;
+  font-size: 1rem;
+}
+.calc-grid__oput__curr {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.calc-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background-color: white;
+  font-family: avenir;
+  position: absolute;
+  bottom: 20%;
+  right: 30%;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
 body {
   font-family: avenir, "roboto", Arial, Helvetica, sans-serif;
   height: 95vh;
@@ -138,7 +204,7 @@ body .container__monitor__popup__dropdown__list__items--underline {
   border-bottom: 1px solid gray;
 }
 body .container__monitor__popup__youtube {
-  border-radius: 10px;
+  border-radius: 5px;
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
   height: 400px;
   width: 500px;
@@ -159,20 +225,23 @@ body .container__monitor__popup__youtube__web__controls {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 60px;
+  width: 50px;
   margin-left: 10px;
 }
 body .container__monitor__popup__youtube__web__controls__button {
-  height: 14px;
-  width: 14px;
-  border-radius: 7px;
+  height: 12px;
+  width: 12px;
+  border-radius: 6px;
   border: none;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  font-size: 12px;
+  font-size: 10px;
   font-weight: bold;
+}
+body .container__monitor__popup__youtube__web__controls__button:hover {
+  cursor: pointer;
 }
 body .container__monitor__popup__youtube__web__controls__button--close {
   background-color: rgb(247, 54, 54);
@@ -185,14 +254,15 @@ body .container__monitor__popup__youtube__web__controls__button--quack {
 }
 body .container__monitor__popup__youtube__web__search {
   height: 15px;
-  width: 60%;
+  width: 55%;
   background-color: white;
   text-align: center;
-  border-radius: 5px;
+  border-radius: 2px;
+  border: 1px solid gray;
 }
-body .container__monitor__popup__youtube__web ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+body .container__monitor__popup__youtube__web ::placeholder {
   color: black;
-  opacity: 1; /* Firefox */
+  opacity: 1;
 }
 body .container__monitor__popup__youtube__web__right {
   width: 70px;
@@ -206,7 +276,7 @@ body .container__monitor__popup__youtube__web__right__icon {
   height: 16px;
   width: 30px;
   background-color: darkgray;
-  border-radius: 8px;
+  border-radius: 5px;
 }
 body .container__monitor__popup__youtube__topBar {
   display: flex;
@@ -248,7 +318,113 @@ body .container__monitor__popup__youtube__topBar__left__logo__icon {
   font-size: 10px;
   color: white;
 }
-body .container__monitor__popup__youtube__video {
-  width: 300px;
+body .container__monitor__popup__youtube__topBar__input {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+body .container__monitor__popup__youtube__topBar__input__text {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+}
+body .container__monitor__popup__youtube__topBar__input__text__form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: gray;
+  border: none;
+}
+body .container__monitor__popup__youtube__topBar__input__text__form:focus {
+  outline: none;
+}
+body .container__monitor__popup__youtube__topBar__input__text__cross {
+  width: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+body .container__monitor__popup__youtube__topBar__input__text__cross__img {
+  height: 10px;
+}
+body .container__monitor__popup__youtube__topBar__input__search {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+}
+body .container__monitor__popup__youtube__topBar__input__search__img {
+  height: 20px;
+  width: 20px;
+}
+body .container__monitor__popup__youtube__topBar__right {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 80px;
+  margin-right: 10px;
+}
+body .container__monitor__popup__youtube__topBar__right__icon {
+  height: 20px;
+  width: 20px;
+}
+body .container__monitor__popup__youtube__content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: start;
+  margin-top: 10px;
+  height: 100%;
+}
+body .container__monitor__popup__youtube__content__main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 65%;
+}
+body .container__monitor__popup__youtube__content__main__video {
   height: 200px;
+  width: 300px;
+}
+body .container__monitor__popup__youtube__content__main__desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  width: 300px;
+  color: white;
+  margin-top: 5px;
+}
+body .container__monitor__popup__youtube__content__main__desc__heading {
+  padding: 0px;
+  margin: 0px;
+  font-size: medium;
+}
+body .container__monitor__popup__youtube__content__main__desc__description {
+  padding: 0px;
+  margin: 0px;
+  font-size: small;
+}
+body .container__monitor__popup__youtube__content__main__desc__description--more {
+  font-weight: bold;
+}
+body .container__monitor__popup__youtube__content__second {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 35%;
+}
+
+.fade {
+  opacity: 0;
+  transition: 0.1s;
 }

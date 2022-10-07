@@ -1,6 +1,7 @@
 @use "./partials/mixins";
 @use "./partials/palette";
 @use "./partials/effects";
+@use "./modules/calculator.scss";
 
 
 body {
@@ -125,7 +126,7 @@ body {
                     
                 }
                 &__youtube{
-                    border-radius: 10px;
+                    border-radius: 5px;
                     box-shadow: 2px 2px 2px 2px rgba($color: black, $alpha: 0.1);
                     height: 400px;
                     width: 500px;
@@ -133,22 +134,26 @@ body {
                     position: absolute;
                     right: 35%;
                     top: 20%;
+
                     &__web{
                         @include mixins.flexing(row, space-between, center);
                         height: 35px;
                         
                         &__controls{
                             @include mixins.flexing(row, space-between, center);
-                            width: 60px;
+                            width: 50px;
                             margin-left: 10px;
                             &__button{
-                                height: 14px;
-                                width: 14px;
-                                border-radius: 7px;
+                                height:12px;
+                                width: 12px;
+                                border-radius: 6px;
                                 border: none;
                                 @include mixins.flexing(row, center, center);
-                                font-size: 12px;
+                                font-size: 10px;
                                 font-weight: bold;
+                                &:hover{
+                                    cursor: pointer;
+                                }
                                 
                                 &--close{
                                     background-color: rgb(247, 54, 54);
@@ -165,16 +170,17 @@ body {
                         }
                         &__search{
                             height: 15px;
-                            width: 60%;
+                            width: 55%;
                             background-color: white;
                             text-align: center;
-                            border-radius: 5px;
+                            border-radius: 2px;
+                            border: 1px solid gray;
                             
                           
                         }
-                        ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+                        ::placeholder { 
                             color: black;
-                            opacity: 1; /* Firefox */
+                            opacity: 1;
                           }
                           &__right{
                             width: 70px;
@@ -184,10 +190,11 @@ body {
                                 height: 16px;
                                 width: 30px;
                                 background-color: darkgray;
-                                border-radius: 8px;
+                                border-radius: 5px;
                             }
                           }
                     }
+
                     &__topBar{
                         @include mixins.flexing(row, space-between, center);
                         height: 40px;
@@ -216,18 +223,99 @@ body {
                                 }
                             }
                         }
+                        &__input{
+                            @include mixins.flexing(row,center,center);
+                            &__text{
+                                @include mixins.flexing(row,center,center);
+                                border: 1px solid black;
+                                &__form{
+                                    @include mixins.flexing(row,center,center);
+                                    color: gray;
+                                    border: none;
+                                    &:focus{
+                                        outline: none;
+                                    }
+                                }
+                                &__cross{
+                                    width: 20px;
+                                    @include mixins.flexing(row,center,center);
+                                    &__img{
+                                        height: 10px;
+                                    }
+                                }
+                                
+                                
+                            }
+                            &__search{
+                                @include mixins.flexing(row,center,center);
+                                width: 30px;
+                                &__img{
+                                    height: 20px;
+                                    width: 20px;
+                                }
+
+                            }
+                        }
+                        &__right{
+                            @include mixins.flexing(row, space-between, center);
+                            width: 80px;
+                            margin-right: 10px;
+                            &__icon{
+                                height: 20px;
+                                width: 20px;
+                            }
+                        }
                     }
-                    &__video{
-                        width: 300px;
-                        height: 200px;
-                    }
+
+                    &__content{
+                        @include mixins.flexing(row, center, start);
+                        margin-top: 10px;
+                        height: 100%;
+                        &__main{
+                            @include mixins.flexing(column, space-between, center);
+                            width: 65%;
+                            
+                            &__video{
+                            height: 200px;
+                            width: 300px;
+                        
+                            }
+                            &__desc{
+                                @include mixins.flexing(column, space-between, start);
+                                width: 300px;
+                                color: white;
+                                margin-top: 5px;
+                                
+                                &__heading{
+                                    padding: 0px;
+                                    margin: 0px;
+                                    font-size: medium;
+                                }
+                                &__description{
+                                    padding: 0px;
+                                    margin: 0px;
+                                    font-size: small;
+                                    &--more{
+                                        font-weight: bold;
+                                    }
+                                }
+                            }
+
+                        }
+                        &__second{
+                            @include mixins.flexing(column, space-between, center);
+                            width: 35%;
+
+                        }
+                       
+                    }       
                 }
-                
             }
         }
     }
-
-
-    
 }
 
+.fade {
+    opacity: 0;
+    transition: 0.1s;
+}

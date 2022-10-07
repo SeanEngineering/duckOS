@@ -48,9 +48,9 @@
                 <div class="container__monitor__popup__youtube">
                     <div class="container__monitor__popup__youtube__web">
                         <div class="container__monitor__popup__youtube__web__controls">
-                            <button class="container__monitor__popup__youtube__web__controls__button container__monitor__popup__youtube__web__controls__button--close">x</button>
-                            <button class="container__monitor__popup__youtube__web__controls__button container__monitor__popup__youtube__web__controls__button--minimise">-</button>
-                            <button class="container__monitor__popup__youtube__web__controls__button container__monitor__popup__youtube__web__controls__button--quack">◯</button>
+                            <button class="container__monitor__popup__youtube__web__controls__button container__monitor__popup__youtube__web__controls__button--close" id="close">x</button>
+                            <button class="container__monitor__popup__youtube__web__controls__button container__monitor__popup__youtube__web__controls__button--minimise" id="minimise">-</button>
+                            <button class="container__monitor__popup__youtube__web__controls__button container__monitor__popup__youtube__web__controls__button--quack" id="expand">◯</button>
                         </div>
 
                         <input class="container__monitor__popup__youtube__web__search" type="text" placeholder="https://www.youtube.com/watch?v=6k01DIVDJlY">
@@ -66,13 +66,30 @@
                             <img class="container__monitor__popup__youtube__topBar__left__bars" src="./icons/bars.svg" alt="">
                             <div class="container__monitor__popup__youtube__topBar__left__logo"><span class="container__monitor__popup__youtube__topBar__left__logo__icon">▶</span><span class="container__monitor__popup__youtube__topBar__left__logo__text">DuckTube</span></div>
                         </div>
+                        <div class="container__monitor__popup__youtube__topBar__input">
+                            <div class="container__monitor__popup__youtube__topBar__input__text">
+                                <input class="container__monitor__popup__youtube__topBar__input__text__form" type="text">
+                                <div class="container__monitor__popup__youtube__topBar__input__text__cross"><img class="container__monitor__popup__youtube__topBar__input__text__cross__img" src="./icons/cross.svg" alt=""></div>
+                            </div>
+                            <div class="container__monitor__popup__youtube__topBar__input__search"><img class="container__monitor__popup__youtube__topBar__input__search__img" src="./icons/search.svg" alt=""></div>
+                        </div>
 
+                        <div class="container__monitor__popup__youtube__topBar__right">
+                            <img class="container__monitor__popup__youtube__topBar__right__icon" src="./icons/video.svg" alt="">
+                            <img class="container__monitor__popup__youtube__topBar__right__icon" src="./icons/bell.svg" alt="">
+                            <img class="container__monitor__popup__youtube__topBar__right__icon" src="./icons/profile.svg" alt="">
+
+                        </div>
                     </div>
 
                     <div class="container__monitor__popup__youtube__content">
                         <div class="container__monitor__popup__youtube__content__main">
                             <iframe class="container__monitor__popup__youtube__content__main__video" src="https://www.youtube.com/embed/6k01DIVDJlY" title="True Facts About The Duck" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             <div class="container__monitor__popup__youtube__content__main__desc">
+                                <h3 class="container__monitor__popup__youtube__content__main__desc__heading">True Facts About The Duck</h3>
+                                <p class="container__monitor__popup__youtube__content__main__desc__description">11,072,129 views  Apr 20, 2013</p>
+                                <p class="container__monitor__popup__youtube__content__main__desc__description">not for children... <span class="container__monitor__popup__youtube__content__main__desc__description--more">...more</span></p>
+                                <div></div>
                             </div>
                             <div class="container__monitor__popup__youtube__content__main__creator"></div>
                             <div class="container__monitor__popup__youtube__content__main__comments"></div>
@@ -80,12 +97,35 @@
                         </div>
                         <div class="container__monitor__popup__youtube__content__second"></div>
                     </div>
-                    
-                    
+                          
                 </div>
                 
-
-
+                <div class="calc-body" id="calc-body">
+                    <div class ="calc-grid">
+                        <div class="calc-grid__oput">
+                          <div data-previous-operand class="calc-grid__oput__prev"></div>
+                          <div data-current-operand class="current-operand calc-grid__oput__curr"></div>
+                        </div>
+                        <button data-all-clear class="calc-grid__btn calc-grid__btn--span2 calc-grid__btn--dgrey">AC</button>
+                        <button data-delete class="calc-grid__btn calc-grid__btn--dgrey">DEL</button>
+                        <button data-operation class="calc-grid__btn calc-grid__btn--org">÷</button>
+                        <button data-number class="calc-grid__btn">1</button>
+                        <button data-number class="calc-grid__btn">2</button>
+                        <button data-number class="calc-grid__btn">3</button>
+                        <button data-operation class="calc-grid__btn calc-grid__btn--org">*</button>
+                        <button data-number class="calc-grid__btn">4</button>
+                        <button data-number class="calc-grid__btn">5</button>
+                        <button data-number class="calc-grid__btn">6</button>
+                        <button data-operation class="calc-grid__btn calc-grid__btn--org">+</button>
+                        <button data-number class="calc-grid__btn">7</button>
+                        <button data-number class="calc-grid__btn">8</button>
+                        <button data-number class="calc-grid__btn">9</button>
+                        <button data-operation class="calc-grid__btn calc-grid__btn--org">-</button>
+                        <button data-number class="calc-grid__btn calc-grid__btn--span2">0</button>
+                        <button data-number class="calc-grid__btn">.</button>
+                        <button data-equals class="calc-grid__btn calc-grid__btn--org">=</button>
+                      </div>
+                </div>
             </div>
 
             <div class="container__monitor__bar">
@@ -93,7 +133,7 @@
                 <a class="container__monitor__bar__icon" href="#"><img src="./icons/phone.svg" alt=""></a>
                 <a class="container__monitor__bar__icon" href="#"><img src="./icons/message.svg" alt=""></a>
                 <a class="container__monitor__bar__icon" id="safari" href="#"><img src="./icons/safari.svg" alt=""></a>
-                <a class="container__monitor__bar__icon" href="#"><img src="./icons/calc.svg" alt=""></a>
+                <a class="container__monitor__bar__icon" id="calc" href="#"><img src="./icons/calc.svg" alt=""></a>
                 <a class="container__monitor__bar__icon" href="#"><img src="./icons/notes.svg" alt=""></a>
                 <a class="container__monitor__bar__icon" href="#"><img src="./icons/facetime.svg" alt=""></a>
                 <a class="container__monitor__bar__icon" href="#"><img src="./icons/appstore.svg" alt=""></a>
