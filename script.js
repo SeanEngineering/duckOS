@@ -82,12 +82,6 @@ const youtube = () =>{
 
 }
 
-const closeYoutube = () =>{
-    youtubePop.classList.remove('fade');
-    setTimeout(function(){youtubePop.style.visibility = 'hidden';},100); 
-    
-}
-
 const openCalc = () => {
     if (calcBody.style.visibility == 'hidden'){
         calcBody.classList.remove('fade');
@@ -151,6 +145,7 @@ const messageApp = () => {
   }
 }
 
+
 const aboutThis = document.querySelector('.container__monitor__nav__left__icon--OS');
 const aboutThisPop = document.querySelector('.container__monitor__popup__dropdown');
 const youtubePop = document.querySelector('.container__monitor__popup__youtube');
@@ -163,13 +158,18 @@ const messageConnect = document.getElementById('msg');
 const messageLog = document.querySelector('.container__monitor__popup__messenger__text__messages');
 const msngr = document.getElementById('msngr')
 const messageWindow = document.querySelector('.container__monitor__popup__messenger');
+const calcClose = document.querySelector('.calc-body__topBar__button--close');
+const messageClose = document.querySelector('.container__monitor__popup__messenger__contacts__topBar__button--close');
 
-safari.addEventListener('click', youtube)
-aboutThis.addEventListener('click', about)
-closeSafari.addEventListener('click', closeYoutube)
-calc.addEventListener('click', openCalc)
-sendMessage.addEventListener('click', sendThis)
-msngr.addEventListener('click',messageApp)
+safari.addEventListener('click', youtube);
+closeSafari.addEventListener('click', youtube);
+aboutThis.addEventListener('click', about);
+calc.addEventListener('click', openCalc);
+calcClose.addEventListener('click', openCalc);
+sendMessage.addEventListener('click', sendThis);
+msngr.addEventListener('click',messageApp);
+messageClose.addEventListener('click',messageApp);
+
 
 calcBody.style.visibility = 'hidden';
 youtubePop.style.visibility = 'hidden';
