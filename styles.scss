@@ -5,23 +5,23 @@
 
 
 body {
-    font-family: avenir, 'roboto', Arial, Helvetica, sans-serif;
-    height: 95vh;
-    width: 95vw;
-
-    @include mixins.flexing(column, space-between,center);
-
+    @include mixins.flexing(column, center, center);
+    font-family: 'roboto',avenir, Arial, Helvetica, sans-serif;
+    height: 98vh;
+    width: 99vw;
     .container{
+        @include mixins.flexing(row, center, center);
         width: inherit;
-
-        @include mixins.flexing(column, center, center);
+        height: inherit;
         &__monitor{
-            height: 80vh;
-            width: 100vh;
+            height: inherit;
+            width: inherit;
             @include mixins.flexing(column, space-between, center);
-            background-color: palette.$primary-background;
-            border: 20px black solid;
-            border-radius: 10px;
+            background-image: url(./images/hello.png);
+            background-repeat:no-repeat;
+            background-position: center center;
+            background-color: #FFBD59;
+            background-size: 50%;
       
             &__nav{
                 @include mixins.flexing(row, space-between, center);
@@ -429,6 +429,7 @@ body {
                             font-size: small;
                            
                             div{
+                                @include mixins.flexing(column, center, end);
                                 background-color: #4188F6;
                                 color: white;
                                 padding: 5px;
@@ -438,6 +439,7 @@ body {
                             
                             }
                             span{
+                                @include mixins.flexing(column, center, end);
                                 background-color: #E9E9EC;
                                 align-self: start;
                                 padding: 5px;

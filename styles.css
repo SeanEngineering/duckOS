@@ -65,31 +65,34 @@
 }
 
 body {
-  font-family: avenir, "roboto", Arial, Helvetica, sans-serif;
-  height: 95vh;
-  width: 95vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
-body .container {
-  width: inherit;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-family: "roboto", avenir, Arial, Helvetica, sans-serif;
+  height: 98vh;
+  width: 99vw;
+}
+body .container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: inherit;
+  height: inherit;
 }
 body .container__monitor {
-  height: 80vh;
-  width: 100vh;
+  height: inherit;
+  width: inherit;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-color: darkgray;
-  border: 20px black solid;
-  border-radius: 10px;
+  background-image: url(./images/hello.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: #FFBD59;
+  background-size: 50%;
 }
 body .container__monitor__nav {
   display: flex;
@@ -563,6 +566,10 @@ body .container__monitor__popup__messenger__text__messages {
   font-size: small;
 }
 body .container__monitor__popup__messenger__text__messages div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
   background-color: #4188F6;
   color: white;
   padding: 5px;
@@ -571,6 +578,10 @@ body .container__monitor__popup__messenger__text__messages div {
   margin: 5px;
 }
 body .container__monitor__popup__messenger__text__messages span {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
   background-color: #E9E9EC;
   align-self: start;
   padding: 5px;
