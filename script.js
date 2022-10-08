@@ -59,43 +59,96 @@ setInterval(showTime,1000);
 showTime();
 
 const about = () =>{
-
     if (aboutThisPop.style.visibility == 'hidden'){
-        aboutThisPop.classList.toggle('fade');
+        aboutThisPop.classList.remove('fade');
         setTimeout(function(){aboutThisPop.style.visibility = 'visible';},100); 
-        aboutThis.classList.toggle('container__monitor__nav__left__icon--OS--active')
+        aboutThis.classList.add('container__monitor__nav__left__icon--OS--active')
     } else {
-        aboutThisPop.classList.toggle('fade');
+        aboutThisPop.classList.add('fade');
         setTimeout(function(){aboutThisPop.style.visibility = 'hidden';},100); 
-        aboutThis.classList.toggle('container__monitor__nav__left__icon--OS--active')
+        aboutThis.classList.remove('container__monitor__nav__left__icon--OS--active')
     }
 
 }
 
 const youtube = () =>{
     if (youtubePop.style.visibility == 'hidden'){
-        youtubePop.classList.toggle('fade');
+        youtubePop.classList.remove('fade');
         setTimeout(function(){youtubePop.style.visibility = 'visible';},100); 
     } else {
-        youtubePop.classList.toggle('fade');
+        youtubePop.classList.add('fade');
         setTimeout(function(){youtubePop.style.visibility = 'hidden';},100); 
     }
 
 }
 
 const closeYoutube = () =>{
-    youtubePop.classList.toggle('fade');
+    youtubePop.classList.remove('fade');
     setTimeout(function(){youtubePop.style.visibility = 'hidden';},100); 
+    
 }
 
 const openCalc = () => {
     if (calcBody.style.visibility == 'hidden'){
-        calcBody.classList.toggle('fade');
+        calcBody.classList.remove('fade');
         setTimeout(function(){calcBody.style.visibility = 'visible';},100); 
     } else {
-        calcBody.classList.toggle('fade');
+        calcBody.classList.add('fade');
         setTimeout(function(){calcBody.style.visibility = 'hidden';},100); 
     }
+}
+
+const sendThis = () => {
+  let newElement = document.createElement('div');
+  let replyElement = document.createElement('span');
+  let randomReply = Math.random()*11;
+  newElement.innerText = messageConnect.value;
+  messageConnect.value = '';
+
+  switch (true){
+    case (newElement.innerText == "password"):
+    replyElement.innerText = "And the answer is 42";
+    break;
+    case (randomReply > 9):
+      replyElement.innerText = "Wrong answer";
+    break;
+    case (randomReply > 8):
+      replyElement.innerText = "Try again.";
+    break;
+    case (randomReply > 6):
+      replyElement.innerText = "Are you serious?";
+    break;
+    case (randomReply > 4):
+      replyElement.innerText = "We could be here a while...";
+    break;
+    case (randomReply > 2):
+      replyElement.innerText = "Yeah not looking good.";
+    break;
+    default:
+      replyElement.innerText = "try again";
+  }
+  
+  if (messageLog.childElementCount > 7){
+    messageLog.children[0].remove();
+  }
+  
+  messageLog.append(newElement);
+  if (messageLog.childElementCount > 7){
+    messageLog.children[0].remove();
+  }
+  setTimeout(function(){messageLog.append(replyElement)},Math.random()*3000); 
+
+
+}
+
+const messageApp = () => {
+    if (messageWindow.style.visibility == 'hidden'){
+      messageWindow.classList.remove('fade');
+      setTimeout(function(){messageWindow.style.visibility = 'visible';},100); 
+  } else {
+      messageWindow.classList.add('fade');
+      setTimeout(function(){messageWindow.style.visibility = 'hidden';},100); 
+  }
 }
 
 const aboutThis = document.querySelector('.container__monitor__nav__left__icon--OS');
@@ -105,14 +158,24 @@ const safari = document.getElementById('safari');
 const closeSafari = document.getElementById('close');
 const calc = document.getElementById('calc');
 const calcBody = document.querySelector('.calc-body');
+const sendMessage = document.querySelector('.container__monitor__popup__messenger__text__textInput__img')
+const messageConnect = document.getElementById('msg');
+const messageLog = document.querySelector('.container__monitor__popup__messenger__text__messages');
+const msngr = document.getElementById('msngr')
+const messageWindow = document.querySelector('.container__monitor__popup__messenger');
 
 safari.addEventListener('click', youtube)
 aboutThis.addEventListener('click', about)
 closeSafari.addEventListener('click', closeYoutube)
 calc.addEventListener('click', openCalc)
+sendMessage.addEventListener('click', sendThis)
+msngr.addEventListener('click',messageApp)
 
-//youtubePop.style.visibility = 'hidden';
-//aboutThisPop.style.visibility = 'hidden';
+calcBody.style.visibility = 'hidden';
+youtubePop.style.visibility = 'hidden';
+aboutThisPop.style.visibility = 'hidden';
+messageWindow.style.visibility = 'hidden';
+//aboutThis.classList.toggle('container__monitor__nav__left__icon--OS--active')
 
 //Calculator
 
