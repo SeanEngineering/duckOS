@@ -130,14 +130,26 @@ const sendThis = () => {
       messageLog.children[0].remove();
     }
     return;
+    case (newElement.innerText == "1987"):
+    replyElement.innerText = "Binary Blitz";
+    messageLog.append(newElement);
+    if (messageLog.childElementCount > 7){
+      messageLog.children[0].remove();
+    }
+    nokia.currentTime=0;
+    setTimeout(function(){messageLog.append(replyElement); nokia.play();},Math.random()*3000); 
+    if (messageLog.childElementCount > 7){
+      messageLog.children[0].remove();
+    }
+    return;
     case (randomReply > 9):
-      replyElement.innerText = "Wrong answer";
+      replyElement.innerText = "Negative";
     break;
     case (randomReply > 8):
-      replyElement.innerText = "Try again.";
+      replyElement.innerText = "You're gonna have to try harder";
     break;
     case (randomReply > 6):
-      replyElement.innerText = "Are you serious?";
+      replyElement.innerText = "Not working. Look for anything out of place.";
     break;
     case (randomReply > 4):
       replyElement.innerText = "We could be here a while...";
@@ -146,7 +158,7 @@ const sendThis = () => {
       replyElement.innerText = "Yeah not looking good.";
     break;
     default:
-      replyElement.innerText = "try again";
+      replyElement.innerText = "Nope, gotta try something else.";
   }
   
   messageLog.append(newElement);
@@ -192,12 +204,7 @@ const dragElement = (elem) => {
     document.onmousemove = null;
   }
 
-  if (document.getElementById(elem.id+'header')){
-    document.getElementById(elem.id).onmousedown = dragMouseDown;
-  } else {
-    elem.onmousedown = dragMouseDown;
-  }
-
+  document.getElementById(elem.id+'header').onmousedown = dragMouseDown;
 }
 
 
@@ -211,10 +218,18 @@ const messageApp = () => {
   }
 }
 
+const expandYT = () => {
+  console.log('clicked')
+    youtubePop.style.position = 'static';
+    youtubePop.style.left = '-20%';
+    youtubePop.style.top = '0%';
+    youtubePop.style.height = '80vh';
+    youtubePop.style.width = '100%';
+}
 
 const aboutThis = document.querySelector('.container__monitor__nav__left__icon--OS');
 const aboutThisPop = document.querySelector('.container__monitor__popup__dropdown');
-const youtubePop = document.querySelector('.container__monitor__popup__youtube');
+const youtubePop = document.getElementById('youtube');
 const safari = document.getElementById('safari');
 const closeSafari = document.getElementById('close');
 const calc = document.getElementById('calc');
@@ -227,15 +242,19 @@ const messageWindow = document.querySelector('.container__monitor__popup__messen
 const calcClose = document.querySelector('.calc-body__topBar__button--close');
 const messageClose = document.querySelector('.container__monitor__popup__messenger__contacts__topBar__button--close');
 const messageBlock = document.getElementById('messageBlock');
+const fullScreenYT = document.querySelector('.container__monitor__popup__youtube__web__controls__button--quack');
+
 const beep = new Audio('./audio/imessage_recieve.mp3');
 const sendSound = new Audio('./audio/imessage_send_sound.mp3')
 const alertSound = new Audio('./audio/alert.mp3');
 const marioBros = new Audio('./audio/mario_bros.mp3');
+const nokia = new Audio('./audio/nokia_standard.mp3');
 
 dragElement(messageBlock);
 dragElement(calcBody);
 dragElement(youtubePop);
 
+fullScreenYT.addEventListener('click', expandYT);
 safari.addEventListener('click', youtube);
 closeSafari.addEventListener('click', youtube);
 aboutThis.addEventListener('click', about);
