@@ -59,6 +59,7 @@
   border-radius: 5px;
   background-color: #F2F3F4;
   font-family: avenir;
+  height: 235px;
   width: 125px;
   position: absolute;
   bottom: 20%;
@@ -246,7 +247,7 @@ body .container__monitor__popup__dropdown__list__items--underline {
 body .container__monitor__popup__youtube {
   border-radius: 5px;
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
-  height: 400px;
+  height: 300px;
   width: 500px;
   background-color: white;
   position: absolute;
@@ -369,6 +370,7 @@ body .container__monitor__popup__youtube__topBar__input {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 body .container__monitor__popup__youtube__topBar__input__text {
   display: flex;
@@ -428,16 +430,18 @@ body .container__monitor__popup__youtube__content {
   align-items: start;
   padding-top: 10px;
   background-color: #F2F3F4;
-  height: 82%;
+  height: inherit;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 }
 body .container__monitor__popup__youtube__content__main {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  width: 65%;
+  height: inherit;
+  width: inherit;
+  background-color: #F2F3F4;
 }
 body .container__monitor__popup__youtube__content__main__video {
   height: 200px;
@@ -479,9 +483,11 @@ body .container__monitor__popup__messenger {
   align-items: center;
   position: absolute;
   top: 15%;
-  right: 30%;
+  left: 30%;
   height: 400px;
-  width: 300px;
+  width: 500px;
+  overflow: auto;
+  resize: both;
   background-color: #F2F3F4;
   border-radius: 5px;
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
@@ -489,7 +495,7 @@ body .container__monitor__popup__messenger {
 body .container__monitor__popup__messenger__contacts {
   background-color: #E6E6E7;
   height: inherit;
-  width: 35%;
+  width: 20%;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 }
@@ -544,11 +550,11 @@ body .container__monitor__popup__messenger__contacts__topBar :first-child {
 body .container__monitor__popup__messenger__contacts__search {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   padding: 2px;
   border: 1px solid gray;
-  margin: 5px;
+  margin: 4px;
   border-radius: 2px;
   background-color: #D9DADB;
 }
@@ -572,7 +578,7 @@ body .container__monitor__popup__messenger__text {
   align-items: center;
   background-color: white;
   height: inherit;
-  width: inherit;
+  width: 80%;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
@@ -582,7 +588,7 @@ body .container__monitor__popup__messenger__text__topBar {
   justify-content: center;
   align-items: center;
   height: 25px;
-  width: inherit;
+  width: 100%;
   background-color: #F2F3F4;
   border-top-right-radius: 5px;
   gap: 5px;
@@ -609,7 +615,7 @@ body .container__monitor__popup__messenger__text__messages {
   flex-direction: column;
   justify-content: flex-end;
   align-items: end;
-  width: inherit;
+  width: 100%;
   height: 85%;
   background-color: white;
   font-size: small;
@@ -644,7 +650,7 @@ body .container__monitor__popup__messenger__text__textInput {
   justify-content: center;
   align-items: center;
   height: 10%;
-  width: inherit;
+  width: 100%;
   border-bottom-right-radius: 5px;
 }
 body .container__monitor__popup__messenger__text__textInput__input {

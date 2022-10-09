@@ -131,9 +131,48 @@ const sendThis = () => {
     messageLog.children[0].remove();
   }
   setTimeout(function(){messageLog.append(replyElement)},Math.random()*3000); 
+}
 
+//Moveable items
+const dragElement = (elem) => {
+  let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+
+  
+
+  const dragMouseDown = (e) => {
+    e = e || window.event;
+    console.log('check')
+    e.preventDefault;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    document.onmousemove = elementDrag;
+  }
+
+  const elementDrag = (e) => {
+    e = e || window.event;
+    e.preventDefault();
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    elem.style.top = (elem.offsetTop - pos2) + 'px';
+    elem.style.left = (elem.offsetLeft - pos1) + 'px';
+  }
+
+  const closeDragElement = () => {
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+
+  if (document.getElementById(elem.id+'header')){
+    document.getElementById(elem.id).onmousedown = dragMouseDown;
+  } else {
+    elem.onmousedown = dragMouseDown;
+  }
 
 }
+
 
 const messageApp = () => {
     if (messageWindow.style.visibility == 'hidden'){
@@ -160,6 +199,11 @@ const msngr = document.getElementById('msngr')
 const messageWindow = document.querySelector('.container__monitor__popup__messenger');
 const calcClose = document.querySelector('.calc-body__topBar__button--close');
 const messageClose = document.querySelector('.container__monitor__popup__messenger__contacts__topBar__button--close');
+const messageBlock = document.getElementById('messageBlock');
+
+dragElement(messageBlock);
+dragElement(calcBody);
+dragElement(youtubePop);
 
 safari.addEventListener('click', youtube);
 closeSafari.addEventListener('click', youtube);
@@ -169,6 +213,11 @@ calcClose.addEventListener('click', openCalc);
 sendMessage.addEventListener('click', sendThis);
 msngr.addEventListener('click',messageApp);
 messageClose.addEventListener('click',messageApp);
+messageConnect.addEventListener('keypress', function enterPress(e){
+  if (e.which==13){
+    sendThis();
+  }
+});
 
 
 calcBody.style.visibility = 'hidden';
