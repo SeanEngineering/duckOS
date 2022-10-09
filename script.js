@@ -98,11 +98,38 @@ const sendThis = () => {
   let randomReply = Math.random()*11;
   newElement.innerText = messageConnect.value;
   messageConnect.value = '';
+  sendSound.currentTime = 0;
+  sendSound.play();
+  if (messageLog.childElementCount > 7){
+    messageLog.children[0].remove();
+  }
+  
 
   switch (true){
-    case (newElement.innerText == "password"):
-    replyElement.innerText = "And the answer is 42";
-    break;
+    case (newElement.innerText.toLowerCase() == "cogito, ergo sum"):
+    replyElement.innerText = "I think, therefore I am.";
+    messageLog.append(newElement);
+    if (messageLog.childElementCount > 7){
+      messageLog.children[0].remove();
+    }
+    alertSound.currentTime=0;
+    setTimeout(function(){messageLog.append(replyElement); alertSound.play();},Math.random()*3000); 
+    if (messageLog.childElementCount > 7){
+      messageLog.children[0].remove();
+    }
+    return;
+    case (newElement.innerText.toLowerCase() == "it's me"):
+    replyElement.innerText = "Mario!";
+    messageLog.append(newElement);
+    if (messageLog.childElementCount > 7){
+      messageLog.children[0].remove();
+    }
+    marioBros.currentTime=0;
+    setTimeout(function(){messageLog.append(replyElement); marioBros.play();},Math.random()*3000); 
+    if (messageLog.childElementCount > 7){
+      messageLog.children[0].remove();
+    }
+    return;
     case (randomReply > 9):
       replyElement.innerText = "Wrong answer";
     break;
@@ -122,22 +149,22 @@ const sendThis = () => {
       replyElement.innerText = "try again";
   }
   
-  if (messageLog.childElementCount > 7){
-    messageLog.children[0].remove();
-  }
-  
   messageLog.append(newElement);
   if (messageLog.childElementCount > 7){
     messageLog.children[0].remove();
   }
-  setTimeout(function(){messageLog.append(replyElement)},Math.random()*3000); 
+
+  beep.currentTime=0;
+  setTimeout(function(){messageLog.append(replyElement); beep.play();},Math.random()*3000); 
+  if (messageLog.childElementCount > 7){
+    messageLog.children[0].remove();
+  }
+  
 }
 
 //Moveable items
 const dragElement = (elem) => {
   let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-
-  
 
   const dragMouseDown = (e) => {
     e = e || window.event;
@@ -200,6 +227,10 @@ const messageWindow = document.querySelector('.container__monitor__popup__messen
 const calcClose = document.querySelector('.calc-body__topBar__button--close');
 const messageClose = document.querySelector('.container__monitor__popup__messenger__contacts__topBar__button--close');
 const messageBlock = document.getElementById('messageBlock');
+const beep = new Audio('./audio/imessage_recieve.mp3');
+const sendSound = new Audio('./audio/imessage_send_sound.mp3')
+const alertSound = new Audio('./audio/alert.mp3');
+const marioBros = new Audio('./audio/mario_bros.mp3');
 
 dragElement(messageBlock);
 dragElement(calcBody);
