@@ -37,7 +37,7 @@
                     <ul class="container__monitor__popup__dropdown__list">
                         <li class = "container__monitor__popup__dropdown__list__items container__monitor__popup__dropdown__list__items--underline">About This Duck</li>
                         <li class = "container__monitor__popup__dropdown__list__items">System Preferences</li>
-                        <li class = "container__monitor__popup__dropdown__list__items">Pet Store...</li>
+                        <li class = "container__monitor__popup__dropdown__list__items">App Store...</li>
                         <li class = "container__monitor__popup__dropdown__list__items container__monitor__popup__dropdown__list__items--dec">Recent Items <div>></div></li>
                         <li class = "container__monitor__popup__dropdown__list__items">Tell him it's you</li>
                         <li class = "container__monitor__popup__dropdown__list__items">Restart...</li>
@@ -86,9 +86,9 @@
 
                     <div class="container__monitor__popup__youtube__content">
                         <div class="container__monitor__popup__youtube__content__main">
-                            <iframe class="container__monitor__popup__youtube__content__main__video" src="https://www.youtube.com/embed/6k01DIVDJlY" title="True Facts About The Duck" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe class="container__monitor__popup__youtube__content__main__video" id="youtubeVideoStream" src="https://www.youtube.com/embed/6k01DIVDJlY" title="True Facts About The Duck" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             <div class="container__monitor__popup__youtube__content__main__desc">
-                                <h3 class="container__monitor__popup__youtube__content__main__desc__heading">True Facts About The Duck</h3>
+                                <h3 class="container__monitor__popup__youtube__content__main__desc__heading" id="videoHeading">True Facts About The Duck</h3>
                                 <p class="container__monitor__popup__youtube__content__main__desc__description">11,111,000,011 views  Apr 20, 2013</p>
                                 <p class="container__monitor__popup__youtube__content__main__desc__description">not for children... <span class="container__monitor__popup__youtube__content__main__desc__description--more">...more</span></p>
                                 <div></div>
@@ -97,7 +97,49 @@
                             <div class="container__monitor__popup__youtube__content__main__comments"></div>
 
                         </div>
-                        <div class="container__monitor__popup__youtube__content__second"></div>
+                        <div class="container__monitor__popup__youtube__content__second"> <!-- Side bar window -->
+                            <div class="container__monitor__popup__youtube__content__second__vidContainer">
+                                <div class="container__monitor__popup__youtube__content__second__vidContainer__preview"></div>
+                                <div class="container__monitor__popup__youtube__content__second__vidContainer__description">
+                                    <h5>10 HTML Hacks that will CHANGE your life</h5>
+                                    <p>Modzilla</p>
+                                    <p id = 'code1'>100K views ·</p>
+                                </div>
+                            </div>
+                            <div class="container__monitor__popup__youtube__content__second__vidContainer">
+                                <div class="container__monitor__popup__youtube__content__second__vidContainer__preview"></div>
+                                <div class="container__monitor__popup__youtube__content__second__vidContainer__description">
+                                    <h5>10 HTML Hacks that will CHANGE your life</h5>
+                                    <p>Modzilla</p>
+                                    <p id = 'code2'>100K views ·</p>
+                                </div>
+                            </div>
+                            <div class="container__monitor__popup__youtube__content__second__vidContainer">
+                                <div class="container__monitor__popup__youtube__content__second__vidContainer__preview"></div>
+                                <div class="container__monitor__popup__youtube__content__second__vidContainer__description">
+                                    <h5>10 HTML Hacks that will CHANGE your life</h5>
+                                    <p>Modzilla</p>
+                                    <p id = 'code3'>100K views ·</p>
+                                </div>
+                            </div>
+                            <div class="container__monitor__popup__youtube__content__second__vidContainer">
+                                <div class="container__monitor__popup__youtube__content__second__vidContainer__preview"></div>
+                                <div class="container__monitor__popup__youtube__content__second__vidContainer__description">
+                                    <h5>10 HTML Hacks that will CHANGE your life</h5>
+                                    <p>Modzilla</p>
+                                    <p id = 'code4'>100K views ·</p>
+                                </div>
+                            </div>
+                            <div class="container__monitor__popup__youtube__content__second__vidContainer">
+                                <div class="container__monitor__popup__youtube__content__second__vidContainer__preview"></div>
+                                <div class="container__monitor__popup__youtube__content__second__vidContainer__description">
+                                    <h5>10 HTML Hacks that will CHANGE your life</h5>
+                                    <p>Modzilla</p>
+                                    <p id = 'code5'>100K views ·</p>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                           
                 </div>
@@ -151,7 +193,7 @@
                         <div class="container__monitor__popup__messenger__text__messages">
                             <span>Hey</span>
                             <span>You there?</span>
-                            <span>I need the three keywords</span>
+                            <span>I need the four key phrases</span>
                             <span>Look around, there might be some hints</span>
                         </div>
                         <div class="container__monitor__popup__messenger__text__textInput"><input id="msg" class="container__monitor__popup__messenger__text__textInput__input" type="text"><img class="container__monitor__popup__messenger__text__textInput__img" src="./icons/share.svg" alt=""></div>

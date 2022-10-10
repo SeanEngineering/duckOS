@@ -68,7 +68,6 @@ const about = () =>{
         setTimeout(function(){aboutThisPop.style.visibility = 'hidden';},100); 
         aboutThis.classList.remove('container__monitor__nav__left__icon--OS--active')
     }
-
 }
 
 const youtube = () =>{
@@ -91,7 +90,7 @@ const openCalc = () => {
         setTimeout(function(){calcBody.style.visibility = 'hidden';},100); 
     }
 }
-
+let answerArray = [false,false,false,false];
 const sendThis = () => {
   let newElement = document.createElement('div');
   let replyElement = document.createElement('span');
@@ -103,11 +102,27 @@ const sendThis = () => {
   if (messageLog.childElementCount > 7){
     messageLog.children[0].remove();
   }
-  
-
   switch (true){
+    //Hex code
+    case (newElement.innerText.toLowerCase() == randomCode):
+    replyElement.innerText = "Hey cool hex values!";
+    answerArray[0] = true;
+    messageLog.append(newElement);
+    if (messageLog.childElementCount > 7){
+      messageLog.children[0].remove();
+    }
+    notificationSound.currentTime=0;
+    setTimeout(function(){messageLog.append(replyElement); notificationSound.play();},Math.random()*3000); 
+    if (messageLog.childElementCount > 7){
+      messageLog.children[0].remove();
+    }
+    checkAnswerCondition();
+    return;
+
+    // I think, therefore I am.
     case (newElement.innerText.toLowerCase() == "cogito, ergo sum"):
     replyElement.innerText = "I think, therefore I am.";
+    answerArray[1] = true;
     messageLog.append(newElement);
     if (messageLog.childElementCount > 7){
       messageLog.children[0].remove();
@@ -117,8 +132,12 @@ const sendThis = () => {
     if (messageLog.childElementCount > 7){
       messageLog.children[0].remove();
     }
+    checkAnswerCondition();
     return;
+
+    //Nintendo
     case (newElement.innerText.toLowerCase() == "it's me"):
+    answerArray[2] = true;
     replyElement.innerText = "Mario!";
     messageLog.append(newElement);
     if (messageLog.childElementCount > 7){
@@ -129,9 +148,13 @@ const sendThis = () => {
     if (messageLog.childElementCount > 7){
       messageLog.children[0].remove();
     }
+    checkAnswerCondition();
     return;
+
+    //Nokia
     case (newElement.innerText == "1987"):
-    replyElement.innerText = "Binary Blitz";
+    answerArray[3] = true;
+    replyElement.innerText = "Origin of the brick";
     messageLog.append(newElement);
     if (messageLog.childElementCount > 7){
       messageLog.children[0].remove();
@@ -141,7 +164,10 @@ const sendThis = () => {
     if (messageLog.childElementCount > 7){
       messageLog.children[0].remove();
     }
+    checkAnswerCondition();
     return;
+
+    //Standard reply
     case (randomReply > 9):
       replyElement.innerText = "Negative";
     break;
@@ -174,12 +200,25 @@ const sendThis = () => {
   
 }
 
+const checkAnswerCondition = () =>{
+  if (answerArray.filter(value => value == true).length == 4){
+    if (messageLog.childElementCount > 7){
+      messageLog.children[0].remove();
+    }
+    let replyElement = document.createElement('span');
+    replyElement.innerText = 'Congratulations you found all the keys!'
+    setTimeout(function(){messageLog.append(replyElement); victory.play();},3000);
+    document.getElementById('youtubeVideoStream').src='https://www.youtube.com/embed/-9jttTSSDzc';
+    document.getElementById('videoHeading').innerText = 'Interview with Junior JS Developer in 2022';
+    document.getElementById('videoHeading').style.fontSize = '13px';
+  }
+}
 //Moveable items
 const dragElement = (elem) => {
   let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
 
   const dragMouseDown = (e) => {
-    e = e || window.event;
+    e = e || windowInput.event;
     console.log('check')
     e.preventDefault;
     pos3 = e.clientX;
@@ -189,7 +228,7 @@ const dragElement = (elem) => {
   }
 
   const elementDrag = (e) => {
-    e = e || window.event;
+    e = e || windowInput.event;
     e.preventDefault();
     pos1 = pos3 - e.clientX;
     pos2 = pos4 - e.clientY;
@@ -206,7 +245,6 @@ const dragElement = (elem) => {
 
   document.getElementById(elem.id+'header').onmousedown = dragMouseDown;
 }
-
 
 const messageApp = () => {
     if (messageWindow.style.visibility == 'hidden'){
@@ -227,6 +265,16 @@ const expandYT = () => {
     youtubePop.style.width = '100%';
 }
 
+const hiddenMessage = () => {
+  let code = [];
+  for (let i = 1; i < 6; i++){
+      code.push(parseInt(Math.random()*16).toString(16));
+      document.getElementById(`code${i}`).innerHTML += `${code[i-1]} weeks ago`;
+  }
+  return code.join('');
+}
+
+
 const aboutThis = document.querySelector('.container__monitor__nav__left__icon--OS');
 const aboutThisPop = document.querySelector('.container__monitor__popup__dropdown');
 const youtubePop = document.getElementById('youtube');
@@ -243,12 +291,17 @@ const calcClose = document.querySelector('.calc-body__topBar__button--close');
 const messageClose = document.querySelector('.container__monitor__popup__messenger__contacts__topBar__button--close');
 const messageBlock = document.getElementById('messageBlock');
 const fullScreenYT = document.querySelector('.container__monitor__popup__youtube__web__controls__button--quack');
+const randomCode = hiddenMessage();
+
+//ID's for encryption 
 
 const beep = new Audio('./audio/imessage_recieve.mp3');
 const sendSound = new Audio('./audio/imessage_send_sound.mp3')
 const alertSound = new Audio('./audio/alert.mp3');
 const marioBros = new Audio('./audio/mario_bros.mp3');
 const nokia = new Audio('./audio/nokia_standard.mp3');
+const notificationSound = new Audio('./audio/notification_sound_1.mp3')
+const victory = new Audio ('./audio/ffvii_victory.mp3')
 
 dragElement(messageBlock);
 dragElement(calcBody);
