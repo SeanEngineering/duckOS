@@ -58,38 +58,26 @@ const showTime = () =>{
 setInterval(showTime,1000);
 showTime();
 
-const about = () =>{
-    if (aboutThisPop.style.visibility == 'hidden'){
-        aboutThisPop.classList.remove('fade');
-        setTimeout(function(){aboutThisPop.style.visibility = 'visible';},100); 
+const changeTitle = (name) =>{
+
+}
+
+const minimise = (popupName) =>{
+  if (popupName.style.visibility == 'hidden'){
+      popupName.classList.remove('fade');
+      setTimeout(function(){popupName.style.visibility = 'visible';},100); 
+      if (popupName == aboutThisPop) {
         aboutThis.classList.add('container__monitor__nav__left__icon--OS--active')
-    } else {
-        aboutThisPop.classList.add('fade');
-        setTimeout(function(){aboutThisPop.style.visibility = 'hidden';},100); 
+      }
+  } else {
+      popupName.classList.add('fade');
+      setTimeout(function(){popupName.style.visibility = 'hidden';},100); 
+      if (popupName == aboutThisPop) {
         aboutThis.classList.remove('container__monitor__nav__left__icon--OS--active')
-    }
+      }
+  }
 }
 
-const youtube = () =>{
-    if (youtubePop.style.visibility == 'hidden'){
-        youtubePop.classList.remove('fade');
-        setTimeout(function(){youtubePop.style.visibility = 'visible';},100); 
-    } else {
-        youtubePop.classList.add('fade');
-        setTimeout(function(){youtubePop.style.visibility = 'hidden';},100); 
-    }
-
-}
-
-const openCalc = () => {
-    if (calcBody.style.visibility == 'hidden'){
-        calcBody.classList.remove('fade');
-        setTimeout(function(){calcBody.style.visibility = 'visible';},100); 
-    } else {
-        calcBody.classList.add('fade');
-        setTimeout(function(){calcBody.style.visibility = 'hidden';},100); 
-    }
-}
 let answerArray = [false,false,false,false];
 const sendThis = () => {
   let newElement = document.createElement('div');
@@ -240,43 +228,42 @@ const dragElement = (elem) => {
 
   const closeDragElement = () => {
     document.onmouseup = null;
+    pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
     document.onmousemove = null;
   }
 
-  document.getElementById(elem.id+'header').onmousedown = dragMouseDown;
-}
-
-const messageApp = () => {
-    if (messageWindow.style.visibility == 'hidden'){
-      messageWindow.classList.remove('fade');
-      setTimeout(function(){messageWindow.style.visibility = 'visible';},100); 
-  } else {
-      messageWindow.classList.add('fade');
-      setTimeout(function(){messageWindow.style.visibility = 'hidden';},100); 
-  }
+  document.getElementById(elem.id + "header").onmousedown = dragMouseDown;
 }
 
 const expandYT = () => {
-  console.log('clicked')
-    youtubePop.style.position = 'static';
-    youtubePop.style.left = '-20%';
-    youtubePop.style.top = '0%';
-    youtubePop.style.height = '80vh';
-    youtubePop.style.width = '100%';
+  if (youtubePop.classList.contains('container__monitor__popup__youtube--fullscreen')){
+    youtubePop.classList.remove('container__monitor__popup__youtube--fullscreen')
+    youtubePop.classList.add('drag')
+  } else {
+    youtubePop.classList.add('container__monitor__popup__youtube--fullscreen')
+  }
+}
+
+const expandM = () => {
+  if (messageBlock.classList.contains('container__monitor__popup__messenger--fullscreen')){
+    messageBlock.classList.remove('container__monitor__popup__messenger--fullscreen')
+    messageBlock.classList.add('drag')
+  } else {
+    messageBlock.classList.add('container__monitor__popup__messenger--fullscreen')
+  }
 }
 
 const hiddenMessage = () => {
   let code = [];
   for (let i = 1; i < 6; i++){
       code.push(parseInt(Math.random()*16).toString(16));
-      document.getElementById(`code${i}`).innerHTML += `${code[i-1]} weeks ago`;
+      document.getElementById(`code${i}`).innerHTML += ` ${code[i-1]} weeks ago`;
   }
   return code.join('');
 }
 
-
 const aboutThis = document.querySelector('.container__monitor__nav__left__icon--OS');
-const aboutThisPop = document.querySelector('.container__monitor__popup__dropdown');
+const aboutThisPop = document.querySelector('.container__monitor__nav__dropdown');
 const youtubePop = document.getElementById('youtube');
 const safari = document.getElementById('safari');
 const closeSafari = document.getElementById('close');
@@ -292,6 +279,8 @@ const messageClose = document.querySelector('.container__monitor__popup__messeng
 const messageBlock = document.getElementById('messageBlock');
 const fullScreenYT = document.querySelector('.container__monitor__popup__youtube__web__controls__button--quack');
 const randomCode = hiddenMessage();
+const headTitle = document.getElementById('mainTitle');
+const fullScreenM = document.querySelector('.container__monitor__popup__messenger__contacts__topBar__button--quack')
 
 //ID's for encryption 
 
@@ -308,14 +297,15 @@ dragElement(calcBody);
 dragElement(youtubePop);
 
 fullScreenYT.addEventListener('click', expandYT);
-safari.addEventListener('click', youtube);
-closeSafari.addEventListener('click', youtube);
-aboutThis.addEventListener('click', about);
-calc.addEventListener('click', openCalc);
-calcClose.addEventListener('click', openCalc);
+fullScreenM.addEventListener('click', expandM);
+safari.addEventListener('click', () => {minimise(youtubePop)});
+closeSafari.addEventListener('click', () => {minimise(youtubePop)});
+aboutThis.addEventListener('click', () => {minimise(aboutThisPop)});
+calc.addEventListener('click', () => {minimise(calcBody)});
+calcClose.addEventListener('click', () => {minimise(calcBody)});
 sendMessage.addEventListener('click', sendThis);
-msngr.addEventListener('click',messageApp);
-messageClose.addEventListener('click',messageApp);
+msngr.addEventListener('click', () => {minimise(messageWindow)});
+messageClose.addEventListener('click', () => {minimise(messageWindow)});
 messageConnect.addEventListener('keypress', function enterPress(e){
   if (e.which==13){
     sendThis();

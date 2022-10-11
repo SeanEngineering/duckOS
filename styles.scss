@@ -3,7 +3,6 @@
 @use "./partials/effects";
 @use "./modules/calculator.scss";
 
-
 body {
     @include mixins.flexing(column, center, center);
     font-family: 'roboto',avenir, Arial, Helvetica, sans-serif;
@@ -24,12 +23,16 @@ body {
             background-size: 50%;
       
             &__nav{
-                @include mixins.flexing(row, space-between, center);
+                @include mixins.flexing(column, space-between, space-between);
                 background-color: rgba($color: white, $alpha: 0.8);
                 height: 30px;
                 width: inherit;
+                &__top{
+                    @include mixins.flexing(row, space-between, center);
+                    margin-top: 5px;
+                }
                 &__left{
-                    @include mixins.flexing(row, space-around, center);
+                    @include mixins.flexing(row, center, center);
                     gap: 10px;
                     font-size: 12px;
                     margin-left: 10px;
@@ -55,59 +58,32 @@ body {
                     
                 }
                 &__right{
-                    @include mixins.flexing(row, space-around, center);
+                    @include mixins.flexing(row, center, center);
                     gap: 5px;
                     font-size: 12px;
                     margin-right: 10px;
                 }
-            }
-            &__bar{
-                @include mixins.flexing(row, center, center);
-                height: 60px;
-                width: auto;
-                transition: 0.5s;
-                padding-left: 10px;
-                padding-right:10px;
-                margin-bottom: 5px;
-                background-color: rgba($color: white, $alpha: 0.5);
-                border-radius: 20px;
-                opacity: 100%;
-                &__icon{
-                    height: 50px;
-                    width: 50px;
-                    opacity: 100%;
-                    transition: 0.2s;
-                    &:hover{
-                        width: 100px;
-                        height: 100px;
-                        margin-bottom: 30px;
-                        transition: 0.2s;
-                    }
-                        
-                }
-            }
-            &__popup{
-                display: flex;
-                justify-content: left;
-                align-items: flex-start;
-                width: inherit;
-                height: inherit;
                 &__dropdown{
-                    z-index: 2;
+                    z-index: 3;
+                    @include mixins.flexing(row,center,left);
                     height: auto;
                     width: 130px;
                     margin: 2px;
+                    margin-top: 5px;
                     background-color: rgba($color: white, $alpha: .99);
                     border-radius: 5px;
 
                     &__list{
-                        list-style-type: none;
+                        @include mixins.flexing(column, start,left);
+                        width: inherit;
+                        height: inherit;
                         margin-left: 5px;
                         margin-top: 5px;
                         margin-bottom: 3px;
                         padding-left: 2px;
-                       
+                        
                         &__items{
+                            list-style-type: none;
                             font-size: small;
                             padding: 3px;
                             &--dec {
@@ -124,6 +100,39 @@ body {
                     }
                     
                 }
+            }
+            &__bar{
+                @include mixins.flexing(row, center, center);
+                height: 60px;
+                width: auto;
+                transition: 0.5s;
+                padding-left: 10px;
+                padding-right:10px;
+                margin-bottom: 5px;
+                background-color: rgba($color: white, $alpha: 0.5);
+                border-radius: 20px;
+                opacity: 100%;
+                position: absolute;
+                bottom: 1%;
+                &__icon{
+                    height: 50px;
+                    width: 50px;
+                    opacity: 100%;
+                    transition: 0.2s;
+                    &:hover{
+                        width: 100px;
+                        height: 100px;
+                        margin-bottom: 30px;
+                        transition: 0.2s;
+                    }
+                }
+            }
+            &__popup{
+                display: flex;
+                justify-content: left;
+                align-items: flex-start;
+                width: inherit;
+                height: inherit;
                 &__youtube{
                     border-radius: 5px;
                     box-shadow: 2px 2px 2px 2px rgba($color: black, $alpha: 0.1);
@@ -133,6 +142,15 @@ body {
                     position: absolute;
                     left: 20%;
                     top: 20%;
+                    &--fullscreen{
+                        z-index: 2;
+                        left: 0%;
+                        top: 0%;
+                        height: 92%;
+                        width: 100%;
+                        position: static;
+                        box-shadow: none;
+                    }
 
                     &__web{
                         @include mixins.flexing(row, space-between, center);
@@ -357,15 +375,23 @@ body {
                     left: 30%;
                     height: 400px;
                     width: 500px;
-                    overflow: auto;
-                    resize: both;
+                    box-shadow: 2px 2px 2px 2px rgba($color: black, $alpha: 0.1);
+                    &--fullscreen{
+                        z-index: 2;
+                        left: 0%;
+                        top: 0%;
+                        height: 92%;
+                        width: 100%;
+                        position: static;
+                        box-shadow: none;
+                    }
                     
                     background-color: palette.$topBar-light;
                     border-radius: 5px;
-                    box-shadow: 2px 2px 2px 2px rgba($color: black, $alpha: 0.1);
+                    
                     &__contacts{
                         background-color: palette.$deepLayer-light;
-                        height: inherit;
+                        height: 100%;
                         width: 20%;
                         border-top-left-radius: 5px;
                         border-bottom-left-radius: 5px;
@@ -440,7 +466,7 @@ body {
                     &__text{
                         @include mixins.flexing(column, space-between, center);
                         background-color: palette.$whiteBackrgound-light;
-                        height: inherit;
+                        height: 100%;
                         width: 80%;
                         border-top-right-radius: 5px;
                         border-bottom-right-radius: 5px;
@@ -533,10 +559,3 @@ body {
     transition: 0.1s;
 }
 
-.max{
-    position:fixed;
-    left: 0%;
-    top: 0%;
-    height: 80%;
-    width: inherit;
-}
