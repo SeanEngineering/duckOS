@@ -62,9 +62,11 @@ const focusCheck = () =>{
   messageBlock.addEventListener('click', () => {ref.innerText = 'Messenger'});
   calcBody.addEventListener('click', () => {ref.innerText = 'Calculator'});
   spotlight.addEventListener('click', () => {ref.innerText = 'spotlight'})
-
   spotlight.style.visibility = 'hidden';
   
+  youtubePop.style.zIndex = 1;
+  messageBlock.style.zIndex = 1;
+  calcBody.style.zIndex = 1;
   switch (true) {
     case (ref.innerText == 'Safari'):
     main.innerText = 'Safari';
