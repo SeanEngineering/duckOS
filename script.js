@@ -62,11 +62,13 @@ const focusCheck = () =>{
   messageBlock.addEventListener('click', () => {ref.innerText = 'Messenger'});
   calcBody.addEventListener('click', () => {ref.innerText = 'Calculator'});
   spotlight.addEventListener('click', () => {ref.innerText = 'spotlight'})
+  notesWindow.addEventListener('click', () => {ref.innerText = 'Notes'})
   spotlight.style.visibility = 'hidden';
   
   youtubePop.style.zIndex = 1;
   messageBlock.style.zIndex = 1;
   calcBody.style.zIndex = 1;
+  notesWindow.style.zIndex = 1;
   switch (true) {
     case (ref.innerText == 'Safari'):
     main.innerText = 'Safari';
@@ -82,6 +84,10 @@ const focusCheck = () =>{
     break;
     case (ref.innerText == 'spotlight'):
       spotlight.style.visibility = 'visible';
+    break;
+    case (ref.innerText == 'Notes'):
+      main.innerText = 'Notes';
+      notesWindow.style.zIndex = 2;
     break;
     default:
     main.innerText = 'Finder';
@@ -102,6 +108,9 @@ const minimise = (popupName) =>{
           break;
         case (popupName == calcBody):
           main.innerText = 'Calculator';
+          break;
+        case (popupName == notesWindow):
+          main.innerText = 'Notes';
           break;
       }
   } else {
@@ -306,6 +315,9 @@ const expandM = () => {
     messageBlock.classList.add('container__monitor__popup__messenger--fullscreen')
   }
 }
+const expandNotes = () => {
+
+}
 
 const hiddenMessage = () => {
   const colorArray = ['#4B0082', '#9400D3', '#FF7F00', '#FF0000', '#FFFF00'];
@@ -359,10 +371,16 @@ const fullScreenM = document.querySelector('.container__monitor__popup__messenge
 const monitor = document.querySelector('.container__monitor__popup')
 const ref = document.getElementById('check');
 
+const closeNotes = document.querySelector('.container__monitor__popup__notes__controls__button--close');
+const notesWindow = document.querySelector('.container__monitor__popup__notes');
+const notes = document.getElementById('notes');
 const spotlight = document.querySelector('.container__monitor__popup__spotlight');
 const search = document.getElementById('search');
 search.addEventListener('click', () => {minimise(spotlight)})
 
+const gallery = document.getElementById('gallery');
+
+gallery.style.visibility = 'hidden'
 //ref.style.visibility = 'hidden';
 
 const tableHide = () =>{
@@ -416,8 +434,11 @@ const rainbow = new Audio ('./audio/notification.mp3')
 dragElement(messageBlock);
 dragElement(calcBody);
 dragElement(youtubePop);
+dragElement(notesWindow);
 
 //events
+notes.addEventListener('click', () => {minimise(notesWindow)});
+closeNotes.addEventListener('click', () => {minimise(notesWindow)});
 fullScreenYT.addEventListener('click', expandYT);
 fullScreenM.addEventListener('click', expandM);
 safari.addEventListener('click', () => {minimise(youtubePop)});
@@ -448,6 +469,7 @@ fileDropDown.style.visibility = 'hidden';
 editDropDown.style.visibility = 'hidden';
 viewDropDown.style.visibility = 'hidden';
 helpDropDown.style.visibility = 'hidden';
+notesWindow.style.visibility = 'hidden';
 
 calcBody.style.visibility = 'hidden';
 youtubePop.style.visibility = 'hidden';

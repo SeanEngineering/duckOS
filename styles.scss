@@ -23,7 +23,7 @@ body {
             background-size:cover;
       
             &__nav{
-                z-index: 1;
+                z-index: 5;
                 @include mixins.flexing(column, space-between, space-between);
                 background-color: rgba($color: white, $alpha: 0.8);
                 height: 30px;
@@ -625,6 +625,123 @@ body {
                         font-size: x-large;
                         &:focus{
                             outline: none;
+                        }
+                    }
+                }
+                &__notes{
+                    width: auto;
+                    height: auto;
+                    background-color: white;
+                    border-radius: 5px;
+                    position: absolute;
+                    top: 15%;
+                    left: 30%;
+                    textarea{
+                        border: none;
+                        &:focus{
+                            outline: none;
+                        }
+                    }
+                    &--fullscreen{
+                        z-index: 2;
+                        left: 0%;
+                        top: 0%;
+                        height: 90%;
+                        width: 100%;
+                        position: static;
+                        box-shadow: none;
+                    }
+                    &__controls{
+                        margin-top: 2px;
+                        @include mixins.flexing(row, flex-start, center);
+                        gap: 6px;
+                        width: inherit;
+                        margin-left: 10px;
+                        &__button{
+                            height:12px;
+                            width: 12px;
+                            border-radius: 6px;
+                            border: none;
+                            @include mixins.flexing(row, center, center);
+                            font-size: 10px;
+                            font-weight: bold;
+                            &:hover{
+                                cursor: pointer;
+                            }
+                            
+                            &--close{
+                                background-color: rgb(247, 54, 54);
+                               font-size: 7px;
+                                text-align: center;
+                            }
+                            &--minimise{
+                                background-color: rgb(255, 193, 60);
+
+                            }
+                            &--quack{
+                                background-color: rgb(33, 172, 33);
+                                font-size: medium;
+                            }
+                        }
+                    }
+                }
+
+                &__photos{
+                    z-index: 2;
+                    @include mixins.flexing(column, flex-start, left);
+                    height: auto;
+                    background-color: white;
+                    border-radius: 5px;
+                    position: absolute;
+                    &--fullscreen{
+                        z-index: 2;
+                        left: 0%;
+                        top: 0%;
+                        height: 90%;
+                        width: 100%;
+                        position: static;
+                        box-shadow: none;
+                    }
+                    &__controls{
+                        margin-top: 2px;
+                        @include mixins.flexing(row, flex-start, center);
+                        gap: 6px;
+                        width: inherit;
+                        margin-left: 10px;
+                        &__button{
+                            height:12px;
+                            width: 12px;
+                            border-radius: 6px;
+                            border: none;
+                            @include mixins.flexing(row, center, center);
+                            font-size: 10px;
+                            font-weight: bold;
+                            &:hover{
+                                cursor: pointer;
+                            }
+                            
+                            &--close{
+                                background-color: rgb(247, 54, 54);
+                               font-size: 7px;
+                                text-align: center;
+                            }
+                            &--minimise{
+                                background-color: rgb(255, 193, 60);
+
+                            }
+                            &--quack{
+                                background-color: rgb(33, 172, 33);
+                                font-size: medium;
+                            }
+                        }
+                    }
+                    &__gallery{
+                        img{
+                            height: 100px;
+                            width: auto;
+                            &:hover{
+                                height: 500px;
+                            }
                         }
                     }
                 }

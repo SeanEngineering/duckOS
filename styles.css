@@ -134,7 +134,7 @@ body .container__monitor {
   background-size: cover;
 }
 body .container__monitor__nav {
-  z-index: 1;
+  z-index: 5;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -839,6 +839,131 @@ body .container__monitor__popup__spotlight input {
 }
 body .container__monitor__popup__spotlight input:focus {
   outline: none;
+}
+body .container__monitor__popup__notes {
+  width: auto;
+  height: auto;
+  background-color: white;
+  border-radius: 5px;
+  position: absolute;
+  top: 15%;
+  left: 30%;
+}
+body .container__monitor__popup__notes textarea {
+  border: none;
+}
+body .container__monitor__popup__notes textarea:focus {
+  outline: none;
+}
+body .container__monitor__popup__notes--fullscreen {
+  z-index: 2;
+  left: 0%;
+  top: 0%;
+  height: 90%;
+  width: 100%;
+  position: static;
+  box-shadow: none;
+}
+body .container__monitor__popup__notes__controls {
+  margin-top: 2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 6px;
+  width: inherit;
+  margin-left: 10px;
+}
+body .container__monitor__popup__notes__controls__button {
+  height: 12px;
+  width: 12px;
+  border-radius: 6px;
+  border: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+  font-weight: bold;
+}
+body .container__monitor__popup__notes__controls__button:hover {
+  cursor: pointer;
+}
+body .container__monitor__popup__notes__controls__button--close {
+  background-color: rgb(247, 54, 54);
+  font-size: 7px;
+  text-align: center;
+}
+body .container__monitor__popup__notes__controls__button--minimise {
+  background-color: rgb(255, 193, 60);
+}
+body .container__monitor__popup__notes__controls__button--quack {
+  background-color: rgb(33, 172, 33);
+  font-size: medium;
+}
+body .container__monitor__popup__photos {
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: left;
+  height: auto;
+  background-color: white;
+  border-radius: 5px;
+  position: absolute;
+}
+body .container__monitor__popup__photos--fullscreen {
+  z-index: 2;
+  left: 0%;
+  top: 0%;
+  height: 90%;
+  width: 100%;
+  position: static;
+  box-shadow: none;
+}
+body .container__monitor__popup__photos__controls {
+  margin-top: 2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 6px;
+  width: inherit;
+  margin-left: 10px;
+}
+body .container__monitor__popup__photos__controls__button {
+  height: 12px;
+  width: 12px;
+  border-radius: 6px;
+  border: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+  font-weight: bold;
+}
+body .container__monitor__popup__photos__controls__button:hover {
+  cursor: pointer;
+}
+body .container__monitor__popup__photos__controls__button--close {
+  background-color: rgb(247, 54, 54);
+  font-size: 7px;
+  text-align: center;
+}
+body .container__monitor__popup__photos__controls__button--minimise {
+  background-color: rgb(255, 193, 60);
+}
+body .container__monitor__popup__photos__controls__button--quack {
+  background-color: rgb(33, 172, 33);
+  font-size: medium;
+}
+body .container__monitor__popup__photos__gallery img {
+  height: 100px;
+  width: auto;
+}
+body .container__monitor__popup__photos__gallery img:hover {
+  height: 500px;
 }
 
 .fade {
