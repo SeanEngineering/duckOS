@@ -16,11 +16,11 @@ body {
             height: inherit;
             width: inherit;
             @include mixins.flexing(column, space-between, center);
-            background-image: url(./images/hello.png);
+            background-image: url(./images/minimal-mojave-day-gi.jpg);
             background-repeat:no-repeat;
             background-position: center center;
-            background-color: #FFBD59;
-            background-size: 50%;
+            background-color: #ECE2CC; //#FFBD59
+            background-size:cover;
       
             &__nav{
                 z-index: 1;

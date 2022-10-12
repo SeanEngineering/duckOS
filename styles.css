@@ -127,11 +127,11 @@ body .container__monitor {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-image: url(./images/hello.png);
+  background-image: url(./images/minimal-mojave-day-gi.jpg);
   background-repeat: no-repeat;
   background-position: center center;
-  background-color: #FFBD59;
-  background-size: 50%;
+  background-color: #ECE2CC;
+  background-size: cover;
 }
 body .container__monitor__nav {
   z-index: 1;
