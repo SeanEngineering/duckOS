@@ -61,6 +61,9 @@ const focusCheck = () =>{
   youtubePop.addEventListener('click', () => {ref.innerText = 'Safari'});
   messageBlock.addEventListener('click', () => {ref.innerText = 'Messenger'});
   calcBody.addEventListener('click', () => {ref.innerText = 'Calculator'});
+  spotlight.addEventListener('click', () => {ref.innerText = 'spotlight'})
+
+  spotlight.style.visibility = 'hidden';
   
   switch (true) {
     case (ref.innerText == 'Safari'):
@@ -74,6 +77,9 @@ const focusCheck = () =>{
     case (ref.innerText == 'Calculator'):
       main.innerText = 'Calculator';
       calcBody.style.zIndex = 2;
+    break;
+    case (ref.innerText == 'spotlight'):
+      spotlight.style.visibility = 'visible';
     break;
     default:
     main.innerText = 'Finder';
@@ -333,6 +339,10 @@ const fullScreenM = document.querySelector('.container__monitor__popup__messenge
 const monitor = document.querySelector('.container__monitor__popup')
 const ref = document.getElementById('check');
 
+const spotlight = document.querySelector('.container__monitor__popup__spotlight');
+const search = document.getElementById('search');
+search.addEventListener('click', () => {minimise(spotlight)})
+
 //ref.style.visibility = 'hidden';
 
 const tableHide = () =>{
@@ -402,6 +412,7 @@ messageConnect.addEventListener('keypress', function enterPress(e){
   }
 });
 
+
 monitor.addEventListener('click', tableHide);
 monitor.addEventListener('click', focusCheck);
 
@@ -421,6 +432,8 @@ calcBody.style.visibility = 'hidden';
 youtubePop.style.visibility = 'hidden';
 duckDropDown.style.visibility = 'hidden';
 messageWindow.style.visibility = 'hidden';
+spotlight.style.visibility = 'hidden';
+
 //aboutThis.classList.toggle('container__monitor__nav__left__icon--OS--active')
 
 //Calculator
