@@ -23,6 +23,7 @@ body {
             background-size: 50%;
       
             &__nav{
+                z-index: 1;
                 @include mixins.flexing(column, space-between, space-between);
                 background-color: rgba($color: white, $alpha: 0.8);
                 height: 30px;
@@ -37,10 +38,12 @@ body {
                     font-size: 12px;
                     margin-left: 10px;
                     &__icon{
+                        @include mixins.flexing(row, center, center);
                         transition: 0.1s;
                         padding: 1px;
                         text-decoration: none;
                         color: black;
+                        text-align: center;
                         border-radius: 3px;
                         padding-left: 5px;
                         padding-right: 5px;
@@ -59,7 +62,9 @@ body {
                             }
                         }
                         &--main{
-                            font-weight: bold;
+                            font-size: 12px;
+                            font-weight:500;
+                            width: 60px;
                         }
 
                     }
@@ -86,16 +91,16 @@ body {
                         left: 55px;
                     }
                     &--file{
-                        left: 108px;
+                        left: 132px;
                     }
                     &--edit{
-                        left: 145px;
+                        left: 170px;
                     }
                     &--view{
-                        left: 185px;
+                        left: 210px;
                     }
                     &--help{
-                        left: 232px;
+                        left: 257px;
                     }
 
                     &__list{
@@ -130,6 +135,7 @@ body {
                 }
             }
             &__bar{
+                z-index: 2;
                 @include mixins.flexing(row, center, center);
                 height: 60px;
                 width: auto;
@@ -156,6 +162,7 @@ body {
                 }
             }
             &__popup{
+                z-index: 2;
                 display: flex;
                 justify-content: left;
                 align-items: flex-start;
@@ -164,7 +171,7 @@ body {
                 &__youtube{
                     border-radius: 5px;
                     box-shadow: 2px 2px 2px 2px rgba($color: black, $alpha: 0.1);
-                    height: 300px;
+                    height: auto;
                     width: 500px;
                     background-color: palette.$whiteBackrgound-light;
                     position: absolute;
@@ -365,6 +372,8 @@ body {
                             @include mixins.flexing(column, space-between, center);
                             width: 35%;
                             height: 98%;
+                            gap: 5px;
+                            margin-bottom: 5px;
                             &__vidContainer{
                                 @include mixins.flexing(row, center, center);
                                 &__preview{
@@ -578,6 +587,7 @@ body {
 
                 }
             }
+            
         }
     }
 }
@@ -586,4 +596,3 @@ body {
     opacity: 0;
     transition: 0.1s;
 }
-

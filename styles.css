@@ -134,6 +134,7 @@ body .container__monitor {
   background-size: 50%;
 }
 body .container__monitor__nav {
+  z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -159,10 +160,15 @@ body .container__monitor__nav__left {
   margin-left: 10px;
 }
 body .container__monitor__nav__left__icon {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   transition: 0.1s;
   padding: 1px;
   text-decoration: none;
   color: black;
+  text-align: center;
   border-radius: 3px;
   padding-left: 5px;
   padding-right: 5px;
@@ -182,7 +188,9 @@ body .container__monitor__nav__left__icon--OS--active {
   transition: 0.1s;
 }
 body .container__monitor__nav__left__icon--main {
-  font-weight: bold;
+  font-size: 12px;
+  font-weight: 500;
+  width: 60px;
 }
 body .container__monitor__nav__right {
   display: flex;
@@ -212,16 +220,16 @@ body .container__monitor__nav__dropdown--main {
   left: 55px;
 }
 body .container__monitor__nav__dropdown--file {
-  left: 108px;
+  left: 132px;
 }
 body .container__monitor__nav__dropdown--edit {
-  left: 145px;
+  left: 170px;
 }
 body .container__monitor__nav__dropdown--view {
-  left: 185px;
+  left: 210px;
 }
 body .container__monitor__nav__dropdown--help {
-  left: 232px;
+  left: 257px;
 }
 body .container__monitor__nav__dropdown__list {
   display: flex;
@@ -257,6 +265,7 @@ body .container__monitor__nav__dropdown__list__items--underline {
   border-bottom: 1px solid gray;
 }
 body .container__monitor__bar {
+  z-index: 2;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -286,6 +295,7 @@ body .container__monitor__bar__icon:hover {
   transition: 0.2s;
 }
 body .container__monitor__popup {
+  z-index: 2;
   display: flex;
   justify-content: left;
   align-items: flex-start;
@@ -295,7 +305,7 @@ body .container__monitor__popup {
 body .container__monitor__popup__youtube {
   border-radius: 5px;
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
-  height: 300px;
+  height: auto;
   width: 500px;
   background-color: white;
   position: absolute;
@@ -535,6 +545,8 @@ body .container__monitor__popup__youtube__content__second {
   align-items: center;
   width: 35%;
   height: 98%;
+  gap: 5px;
+  margin-bottom: 5px;
 }
 body .container__monitor__popup__youtube__content__second__vidContainer {
   display: flex;

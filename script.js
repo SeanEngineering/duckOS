@@ -57,24 +57,50 @@ const showTime = () =>{
 }
 setInterval(showTime,1000);
 showTime();
-
-const changeTitle = (name) =>{
-
+const focusCheck = () =>{
+  youtubePop.addEventListener('click', () => {ref.innerText = 'Safari'});
+  messageBlock.addEventListener('click', () => {ref.innerText = 'Messenger'});
+  calcBody.addEventListener('click', () => {ref.innerText = 'Calculator'});
+  
+  switch (true) {
+    case (ref.innerText == 'Safari'):
+    main.innerText = 'Safari';
+    youtubePop.style.zIndex = 2;
+    break;
+    case (ref.innerText == 'Messenger'):
+    main.innerText = 'Messenger';
+    messageBlock.style.zIndex = 2;
+    break;
+    case (ref.innerText == 'Calculator'):
+      main.innerText = 'Calculator';
+      calcBody.style.zIndex = 2;
+    break;
+    default:
+    main.innerText = 'Finder';
+  }
+  ref.innerText = '';  
 }
 
 const minimise = (popupName) =>{
   if (popupName.style.visibility == 'hidden'){
       popupName.classList.remove('fade');
       setTimeout(function(){popupName.style.visibility = 'visible';},100); 
-      if (popupName == duckDropDown) {
-        aboutThis.classList.add('container__monitor__nav__left__icon--OS--active')
+      switch (true){
+        case (popupName == youtubePop):
+          main.innerText = 'Safari';
+          break;
+        case (popupName == messageBlock):
+          main.innerText = 'Messenger';
+          break;
+        case (popupName == calcBody):
+          main.innerText = 'Calculator';
+          break;
       }
   } else {
+      main.innerText = 'Finder';
       popupName.classList.add('fade');
       setTimeout(function(){popupName.style.visibility = 'hidden';},100); 
-      if (popupName == duckDropDown) {
-        aboutThis.classList.remove('container__monitor__nav__left__icon--OS--active')
-      }
+      
   }
 }
 
@@ -233,6 +259,10 @@ const dragElement = (elem) => {
   }
 
   document.getElementById(elem.id + "header").onmousedown = dragMouseDown;
+  if (document.getElementById(elem.id + "headersub")){
+    document.getElementById(elem.id + "headersub").onmousedown = dragMouseDown;
+  }
+  
 }
 
 const expandYT = () => {
@@ -262,26 +292,6 @@ const hiddenMessage = () => {
   return code.join('');
 }
 
-const aboutThis = document.querySelector('.container__monitor__nav__left__icon--OS');
-
-const youtubePop = document.getElementById('youtube');
-const safari = document.getElementById('safari');
-const closeSafari = document.getElementById('close');
-const calc = document.getElementById('calc');
-const calcBody = document.querySelector('.calc-body');
-const sendMessage = document.querySelector('.container__monitor__popup__messenger__text__textInput__img')
-const messageConnect = document.getElementById('msg');
-const messageLog = document.querySelector('.container__monitor__popup__messenger__text__messages');
-const msngr = document.getElementById('msngr')
-const messageWindow = document.querySelector('.container__monitor__popup__messenger');
-const calcClose = document.querySelector('.calc-body__topBar__button--close');
-const messageClose = document.querySelector('.container__monitor__popup__messenger__contacts__topBar__button--close');
-const messageBlock = document.getElementById('messageBlock');
-const fullScreenYT = document.querySelector('.container__monitor__popup__youtube__web__controls__button--quack');
-const randomCode = hiddenMessage();
-const fullScreenM = document.querySelector('.container__monitor__popup__messenger__contacts__topBar__button--quack')
-const monitor = document.querySelector('.container__monitor__popup')
-
 const menuControl = (valueID) => {
   let register = 0;
   if (document.querySelector(`.container__monitor__nav__dropdown--${valueID}`).style.visibility == 'visible'){
@@ -301,8 +311,29 @@ const menuControl = (valueID) => {
     }
     document.getElementById(valueID).classList.add('container__monitor__nav__left__icon--active');
   }
-  
 }
+
+const aboutThis = document.querySelector('.container__monitor__nav__left__icon--OS');
+const youtubePop = document.getElementById('youtube');
+const safari = document.getElementById('safari');
+const closeSafari = document.getElementById('close');
+const calc = document.getElementById('calc');
+const calcBody = document.querySelector('.calc-body');
+const sendMessage = document.querySelector('.container__monitor__popup__messenger__text__textInput__img')
+const messageConnect = document.getElementById('msg');
+const messageLog = document.querySelector('.container__monitor__popup__messenger__text__messages');
+const msngr = document.getElementById('msngr')
+const messageWindow = document.querySelector('.container__monitor__popup__messenger');
+const calcClose = document.querySelector('.calc-body__topBar__button--close');
+const messageClose = document.querySelector('.container__monitor__popup__messenger__contacts__topBar__button--close');
+const messageBlock = document.getElementById('messageBlock');
+const fullScreenYT = document.querySelector('.container__monitor__popup__youtube__web__controls__button--quack');
+const randomCode = hiddenMessage();
+const fullScreenM = document.querySelector('.container__monitor__popup__messenger__contacts__topBar__button--quack')
+const monitor = document.querySelector('.container__monitor__popup')
+const ref = document.getElementById('check');
+
+//ref.style.visibility = 'hidden';
 
 const tableHide = () =>{
   for (valueID of tableArray){
@@ -333,7 +364,6 @@ const helpIcon = document.getElementById('help');
 const duckIcon = document.getElementById('duck');
 
 //Drop Down Response
-
 mainIcon.addEventListener('click',() => {menuControl('main')});
 fileIcon.addEventListener('click',  () => {menuControl('file')});
 editIcon.addEventListener('click', () => {menuControl('edit')});
@@ -344,7 +374,6 @@ duckIcon.addEventListener('click',  () => {menuControl('duck')});
 const tableArray = ['main', 'file', 'edit', 'view', 'help', 'duck'];
 
 //ID's for encryption 
-
 const beep = new Audio('./audio/imessage_recieve.mp3');
 const sendSound = new Audio('./audio/imessage_send_sound.mp3')
 const alertSound = new Audio('./audio/alert.mp3');
@@ -357,6 +386,7 @@ dragElement(messageBlock);
 dragElement(calcBody);
 dragElement(youtubePop);
 
+//events
 fullScreenYT.addEventListener('click', expandYT);
 fullScreenM.addEventListener('click', expandM);
 safari.addEventListener('click', () => {minimise(youtubePop)});
@@ -371,7 +401,13 @@ messageConnect.addEventListener('keypress', function enterPress(e){
     sendThis();
   }
 });
-monitor.addEventListener('click', tableHide)
+
+monitor.addEventListener('click', tableHide);
+monitor.addEventListener('click', focusCheck);
+
+//youtubePop.addEventListener('click', () => {changeFocus(youtubePop)});
+//calcBody.addEventListener('click', () => {changeFocus(calcBody)});
+//messageWindow.addEventListener('click', () => {changeFocus(messageWindow)});
 
 
 //Drop Down Items
