@@ -112,7 +112,7 @@ const minimise = (popupName) =>{
   }
 }
 
-let answerArray = [false,false,false,false];
+let answerArray = [false,false,false,false,false];
 const sendThis = () => {
   let newElement = document.createElement('div');
   let replyElement = document.createElement('span');
@@ -189,6 +189,22 @@ const sendThis = () => {
     checkAnswerCondition();
     return;
 
+    //ivory
+    case (newElement.innerText.toLowerCase() == 'ivory'):
+      replyElement.innerText = "Colour correction";
+      answerArray[4] = true;
+      messageLog.append(newElement);
+      if (messageLog.childElementCount > 7){
+        messageLog.children[0].remove();
+      }
+      rainbow.currentTime=0;
+      setTimeout(function(){messageLog.append(replyElement); rainbow.play();},Math.random()*3000); 
+      if (messageLog.childElementCount > 7){
+        messageLog.children[0].remove();
+      }
+      checkAnswerCondition();
+      return;
+
     //Standard reply
     case (randomReply > 9):
       replyElement.innerText = "Negative";
@@ -223,7 +239,7 @@ const sendThis = () => {
 }
 
 const checkAnswerCondition = () =>{
-  if (answerArray.filter(value => value == true).length == 4){
+  if (answerArray.filter(value => value == true).length == 5){
     if (messageLog.childElementCount > 7){
       messageLog.children[0].remove();
     }
@@ -292,10 +308,12 @@ const expandM = () => {
 }
 
 const hiddenMessage = () => {
+  const colorArray = ['#4B0082', '#9400D3', '#FF7F00', '#FF0000', '#FFFF00'];
   let code = [];
   for (let i = 1; i < 6; i++){
       code.push(parseInt(Math.random()*16).toString(16));
       document.getElementById(`code${i}`).innerHTML += ` ${code[i-1]} weeks ago`;
+      document.querySelector(`.container__monitor__popup__youtube__content__second__vidContainer__preview--${i}`).style.backgroundColor = colorArray[i-1];
   }
   return code.join('');
 }
@@ -393,6 +411,7 @@ const marioBros = new Audio('./audio/mario_bros.mp3');
 const nokia = new Audio('./audio/nokia_standard.mp3');
 const notificationSound = new Audio('./audio/notification_sound_1.mp3')
 const victory = new Audio ('./audio/ffvii_victory.mp3')
+const rainbow = new Audio ('./audio/notification.mp3')
 
 dragElement(messageBlock);
 dragElement(calcBody);
