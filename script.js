@@ -66,13 +66,13 @@ const minimise = (popupName) =>{
   if (popupName.style.visibility == 'hidden'){
       popupName.classList.remove('fade');
       setTimeout(function(){popupName.style.visibility = 'visible';},100); 
-      if (popupName == aboutThisPop) {
+      if (popupName == duckDropDown) {
         aboutThis.classList.add('container__monitor__nav__left__icon--OS--active')
       }
   } else {
       popupName.classList.add('fade');
       setTimeout(function(){popupName.style.visibility = 'hidden';},100); 
-      if (popupName == aboutThisPop) {
+      if (popupName == duckDropDown) {
         aboutThis.classList.remove('container__monitor__nav__left__icon--OS--active')
       }
   }
@@ -263,7 +263,7 @@ const hiddenMessage = () => {
 }
 
 const aboutThis = document.querySelector('.container__monitor__nav__left__icon--OS');
-const aboutThisPop = document.querySelector('.container__monitor__nav__dropdown');
+
 const youtubePop = document.getElementById('youtube');
 const safari = document.getElementById('safari');
 const closeSafari = document.getElementById('close');
@@ -279,8 +279,69 @@ const messageClose = document.querySelector('.container__monitor__popup__messeng
 const messageBlock = document.getElementById('messageBlock');
 const fullScreenYT = document.querySelector('.container__monitor__popup__youtube__web__controls__button--quack');
 const randomCode = hiddenMessage();
-const headTitle = document.getElementById('mainTitle');
 const fullScreenM = document.querySelector('.container__monitor__popup__messenger__contacts__topBar__button--quack')
+const monitor = document.querySelector('.container__monitor__popup')
+
+const menuControl = (valueID) => {
+  let register = 0;
+  if (document.querySelector(`.container__monitor__nav__dropdown--${valueID}`).style.visibility == 'visible'){
+    document.getElementById(valueID).classList.remove('container__monitor__nav__left__icon--active');
+    register = 1;
+  }
+  duckDropDown.style.visibility = 'hidden';
+  mainDropDown.style.visibility = 'hidden';
+  fileDropDown.style.visibility = 'hidden';
+  editDropDown.style.visibility = 'hidden';
+  viewDropDown.style.visibility = 'hidden';
+  helpDropDown.style.visibility = 'hidden';
+  if (register != 1){
+    document.querySelector(`.container__monitor__nav__dropdown--${valueID}`).style.visibility = 'visible';
+    for (value of tableArray){
+      document.getElementById(value).classList.remove('container__monitor__nav__left__icon--active');
+    }
+    document.getElementById(valueID).classList.add('container__monitor__nav__left__icon--active');
+  }
+  
+}
+
+const tableHide = () =>{
+  for (valueID of tableArray){
+    document.getElementById(valueID).classList.remove('container__monitor__nav__left__icon--active');
+  }
+  duckDropDown.style.visibility = 'hidden';
+  mainDropDown.style.visibility = 'hidden';
+  fileDropDown.style.visibility = 'hidden';
+  editDropDown.style.visibility = 'hidden';
+  viewDropDown.style.visibility = 'hidden';
+  helpDropDown.style.visibility = 'hidden';
+}
+
+//Drop Downs
+const duckDropDown = document.querySelector('.container__monitor__nav__dropdown--duck');
+const mainDropDown = document.querySelector('.container__monitor__nav__dropdown--main');
+const fileDropDown = document.querySelector('.container__monitor__nav__dropdown--file');
+const editDropDown = document.querySelector('.container__monitor__nav__dropdown--edit');
+const viewDropDown = document.querySelector('.container__monitor__nav__dropdown--view');
+const helpDropDown = document.querySelector('.container__monitor__nav__dropdown--help');
+
+//Drop Down Selectors
+const mainIcon = document.getElementById('main');
+const fileIcon = document.getElementById('file');
+const editIcon = document.getElementById('edit');
+const viewIcon = document.getElementById('view');
+const helpIcon = document.getElementById('help');
+const duckIcon = document.getElementById('duck');
+
+//Drop Down Response
+
+mainIcon.addEventListener('click',() => {menuControl('main')});
+fileIcon.addEventListener('click',  () => {menuControl('file')});
+editIcon.addEventListener('click', () => {menuControl('edit')});
+viewIcon.addEventListener('click', () => {menuControl('view')});
+helpIcon.addEventListener('click',  () => {menuControl('help')});
+duckIcon.addEventListener('click',  () => {menuControl('duck')});
+
+const tableArray = ['main', 'file', 'edit', 'view', 'help', 'duck'];
 
 //ID's for encryption 
 
@@ -300,7 +361,6 @@ fullScreenYT.addEventListener('click', expandYT);
 fullScreenM.addEventListener('click', expandM);
 safari.addEventListener('click', () => {minimise(youtubePop)});
 closeSafari.addEventListener('click', () => {minimise(youtubePop)});
-aboutThis.addEventListener('click', () => {minimise(aboutThisPop)});
 calc.addEventListener('click', () => {minimise(calcBody)});
 calcClose.addEventListener('click', () => {minimise(calcBody)});
 sendMessage.addEventListener('click', sendThis);
@@ -311,11 +371,19 @@ messageConnect.addEventListener('keypress', function enterPress(e){
     sendThis();
   }
 });
+monitor.addEventListener('click', tableHide)
 
+
+//Drop Down Items
+mainDropDown.style.visibility = 'hidden';
+fileDropDown.style.visibility = 'hidden';
+editDropDown.style.visibility = 'hidden';
+viewDropDown.style.visibility = 'hidden';
+helpDropDown.style.visibility = 'hidden';
 
 calcBody.style.visibility = 'hidden';
 youtubePop.style.visibility = 'hidden';
-aboutThisPop.style.visibility = 'hidden';
+duckDropDown.style.visibility = 'hidden';
 messageWindow.style.visibility = 'hidden';
 //aboutThis.classList.toggle('container__monitor__nav__left__icon--OS--active')
 

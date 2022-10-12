@@ -37,11 +37,19 @@ body {
                     font-size: 12px;
                     margin-left: 10px;
                     &__icon{
+                        transition: 0.1s;
+                        padding: 1px;
                         text-decoration: none;
                         color: black;
                         border-radius: 3px;
                         padding-left: 5px;
                         padding-right: 5px;
+                        cursor: pointer;
+                        &--active{
+                            background-color: rgba($color: darkgray, $alpha: 0.5);
+                            transition: 0.1s;
+                            text-align: center;
+                        }
                         &--OS{
                             font-weight: bold;
                             transition: 0.2s;
@@ -65,13 +73,30 @@ body {
                 }
                 &__dropdown{
                     z-index: 3;
+                    position: absolute;
+                    top: 33px;
                     @include mixins.flexing(row,center,left);
                     height: auto;
                     width: 130px;
-                    margin: 2px;
-                    margin-top: 5px;
+                    margin: 1px;
+                    margin-top: 6px;
                     background-color: rgba($color: white, $alpha: .99);
                     border-radius: 5px;
+                    &--main{
+                        left: 55px;
+                    }
+                    &--file{
+                        left: 108px;
+                    }
+                    &--edit{
+                        left: 145px;
+                    }
+                    &--view{
+                        left: 185px;
+                    }
+                    &--help{
+                        left: 232px;
+                    }
 
                     &__list{
                         @include mixins.flexing(column, start,left);
@@ -91,6 +116,9 @@ body {
                                 margin-right: 5px;
                                 border-bottom: 1px solid gray;
                                 border-top: 1px solid gray;
+                                div{
+                                    color: gray;
+                                }
                             }
                             &--underline{
                                 margin-right: 5px;
@@ -146,7 +174,7 @@ body {
                         z-index: 2;
                         left: 0%;
                         top: 0%;
-                        height: 92%;
+                        height: 90%;
                         width: 100%;
                         position: static;
                         box-shadow: none;
@@ -380,7 +408,7 @@ body {
                         z-index: 2;
                         left: 0%;
                         top: 0%;
-                        height: 92%;
+                        height: 90%;
                         width: 100%;
                         position: static;
                         box-shadow: none;
