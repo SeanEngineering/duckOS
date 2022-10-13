@@ -147,7 +147,7 @@ const sendThis = () => {
     checkAnswerCondition();
     return;
     // I think, therefore I am.
-    case (newElement.innerText.toLowerCase() == "cogito, ergo sum"):
+    case (newElement.innerText.toLowerCase() == "cogito, ergo sum" || newElement.innerText.toLowerCase() == "cogito ergo sum"):
     replyElement.innerText = "I think, therefore I am.";
     answerArray[1] = true;
     messageLog.append(newElement);
