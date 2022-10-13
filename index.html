@@ -202,7 +202,6 @@
                     <div class="calc-body__topBar" id="calc-bodyheader">
                         <button class="calc-body__topBar__button calc-body__topBar__button--close">╳</button>
                         <button class="calc-body__topBar__button calc-body__topBar__button--minimise">–</button>
-                        <button class="calc-body__topBar__button calc-body__topBar__button--quack">⤢</button>
                     </div>
                     <div class ="calc-grid">
                         <div class="calc-grid__oput">
@@ -247,7 +246,7 @@
                         <div class="container__monitor__popup__messenger__text__messages">
                             <span>Hey</span>
                             <span>You there?</span>
-                            <span>I need the four key phrases</span>
+                            <span>I need the five key phrases</span>
                             <span>Look around, there might be some hints</span>
                         </div>
                         <div class="container__monitor__popup__messenger__text__textInput"><input id="msg" class="container__monitor__popup__messenger__text__textInput__input" type="text"><img class="container__monitor__popup__messenger__text__textInput__img" src="./icons/share.svg" alt=""></div>
@@ -262,7 +261,7 @@
                         <button class="container__monitor__popup__notes__controls__button container__monitor__popup__notes__controls__button--quack" id="expand">⤢</button>
                     </div>
                     <textarea name="" id="" cols="60" rows="5">
-- That message was from that philospher with a certain saying...
+- That message was from that philosopher with a certain saying...
 - The duck was telling me to say something about me.
 - Learn binary
 - Something's not right about those suggested videos
@@ -271,16 +270,21 @@
                 </div>
 
                 <div class="container__monitor__popup__photos" id="gallery">
-                    <div class="container__monitor__popup__photos__controls" id='notesWindowheader'>
+                    <div class="container__monitor__popup__photos__controls" id='galleryheader'>
                         <button class="container__monitor__popup__photos__controls__button container__monitor__popup__photos__controls__button--close" id="close">╳</button>
                         <button class="container__monitor__popup__photos__controls__button container__monitor__popup__photos__controls__button--minimise" id="minimise">–</button>
                         <button class="container__monitor__popup__photos__controls__button container__monitor__popup__photos__controls__button--quack" id="expand">⤢</button>
                     </div>
                     <div class="container__monitor__popup__photos__gallery">
-                        <img src="./images/rene.png" alt="">
-                        <img src="./images/javascript-math-image-exercise-2.svg" alt="">
-                        <img src="./images/roygbiv.png" alt="">
-                        <img src="./images/MPS_Mario.webp" alt="">
+                        <div class="container__monitor__popup__photos__gallery__preview">
+                            <img class="container__monitor__popup__photos__gallery__preview container__monitor__popup__photos__gallery__preview--1" src="./images/rene.png" alt="">
+                            <img class="container__monitor__popup__photos__gallery__preview container__monitor__popup__photos__gallery__preview--2" src="./images/javascript-math-image-exercise-2.svg" alt="">
+                            <img class="container__monitor__popup__photos__gallery__preview container__monitor__popup__photos__gallery__preview--3" src="./images/roygbiv.png" alt="">
+                            <img class="container__monitor__popup__photos__gallery__preview container__monitor__popup__photos__gallery__preview--4" src="./images/MPS_Mario.webp" alt="">
+                        </div>
+                        <div class="container__monitor__popup__photos__gallery__selected">
+                            <img id='mainImage' src="" alt="">
+                        </div>
                     </div>
                 </div>
 
@@ -288,7 +292,7 @@
             </div>
             
             <div class="container__monitor__bar">
-                <a class="container__monitor__bar__icon" href="#"><img src="./icons/photos.svg" alt=""></a>
+                <a class="container__monitor__bar__icon" id='photosIcon' href="#"><img src="./icons/photos.svg" alt=""></a>
                 <a class="container__monitor__bar__icon" href="#"><img src="./icons/phone.svg" alt=""></a>
                 <a class="container__monitor__bar__icon" id="msngr" href="#"><img src="./icons/message.svg" alt=""></a>
                 <a class="container__monitor__bar__icon" id="safari" href="#"><img src="./icons/safari.svg" alt=""></a>

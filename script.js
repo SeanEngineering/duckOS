@@ -61,14 +61,16 @@ const focusCheck = () =>{
   youtubePop.addEventListener('click', () => {ref.innerText = 'Safari'});
   messageBlock.addEventListener('click', () => {ref.innerText = 'Messenger'});
   calcBody.addEventListener('click', () => {ref.innerText = 'Calculator'});
-  spotlight.addEventListener('click', () => {ref.innerText = 'spotlight'})
-  notesWindow.addEventListener('click', () => {ref.innerText = 'Notes'})
+  spotlight.addEventListener('click', () => {ref.innerText = 'spotlight'});
+  notesWindow.addEventListener('click', () => {ref.innerText = 'Notes'});
+  gallery.addEventListener('click', () => {ref.innerText = 'Gallery'});
   spotlight.style.visibility = 'hidden';
   
   youtubePop.style.zIndex = 1;
   messageBlock.style.zIndex = 1;
   calcBody.style.zIndex = 1;
   notesWindow.style.zIndex = 1;
+  gallery.style.zIndex = 1;
   switch (true) {
     case (ref.innerText == 'Safari'):
     main.innerText = 'Safari';
@@ -88,6 +90,10 @@ const focusCheck = () =>{
     case (ref.innerText == 'Notes'):
       main.innerText = 'Notes';
       notesWindow.style.zIndex = 2;
+    break;
+    case (ref.innerText == 'Gallery'):
+      main.innerText = 'Photos';
+      gallery.style.zIndex = 2;
     break;
     default:
     main.innerText = 'Finder';
@@ -130,55 +136,32 @@ const sendThis = () => {
   messageConnect.value = '';
   sendSound.currentTime = 0;
   sendSound.play();
-  if (messageLog.childElementCount > 7){
-    messageLog.children[0].remove();
-  }
   switch (true){
     //Hex code
     case (newElement.innerText.toLowerCase() == randomCode):
     replyElement.innerText = "Hey cool hex values!";
     answerArray[0] = true;
     messageLog.append(newElement);
-    if (messageLog.childElementCount > 7){
-      messageLog.children[0].remove();
-    }
     notificationSound.currentTime=0;
     setTimeout(function(){messageLog.append(replyElement); notificationSound.play();},Math.random()*3000); 
-    if (messageLog.childElementCount > 7){
-      messageLog.children[0].remove();
-    }
     checkAnswerCondition();
     return;
-
     // I think, therefore I am.
     case (newElement.innerText.toLowerCase() == "cogito, ergo sum"):
     replyElement.innerText = "I think, therefore I am.";
     answerArray[1] = true;
     messageLog.append(newElement);
-    if (messageLog.childElementCount > 7){
-      messageLog.children[0].remove();
-    }
     alertSound.currentTime=0;
     setTimeout(function(){messageLog.append(replyElement); alertSound.play();},Math.random()*3000); 
-    if (messageLog.childElementCount > 7){
-      messageLog.children[0].remove();
-    }
     checkAnswerCondition();
     return;
-
     //Nintendo
     case (newElement.innerText.toLowerCase() == "it's me"):
     answerArray[2] = true;
     replyElement.innerText = "Mario!";
     messageLog.append(newElement);
-    if (messageLog.childElementCount > 7){
-      messageLog.children[0].remove();
-    }
     marioBros.currentTime=0;
     setTimeout(function(){messageLog.append(replyElement); marioBros.play();},Math.random()*3000); 
-    if (messageLog.childElementCount > 7){
-      messageLog.children[0].remove();
-    }
     checkAnswerCondition();
     return;
 
@@ -187,14 +170,8 @@ const sendThis = () => {
     answerArray[3] = true;
     replyElement.innerText = "Origin of the brick";
     messageLog.append(newElement);
-    if (messageLog.childElementCount > 7){
-      messageLog.children[0].remove();
-    }
     nokia.currentTime=0;
     setTimeout(function(){messageLog.append(replyElement); nokia.play();},Math.random()*3000); 
-    if (messageLog.childElementCount > 7){
-      messageLog.children[0].remove();
-    }
     checkAnswerCondition();
     return;
 
@@ -203,14 +180,8 @@ const sendThis = () => {
       replyElement.innerText = "Colour correction";
       answerArray[4] = true;
       messageLog.append(newElement);
-      if (messageLog.childElementCount > 7){
-        messageLog.children[0].remove();
-      }
       rainbow.currentTime=0;
       setTimeout(function(){messageLog.append(replyElement); rainbow.play();},Math.random()*3000); 
-      if (messageLog.childElementCount > 7){
-        messageLog.children[0].remove();
-      }
       checkAnswerCondition();
       return;
 
@@ -233,17 +204,9 @@ const sendThis = () => {
     default:
       replyElement.innerText = "Nope, gotta try something else.";
   }
-  
   messageLog.append(newElement);
-  if (messageLog.childElementCount > 7){
-    messageLog.children[0].remove();
-  }
-
   beep.currentTime=0;
   setTimeout(function(){messageLog.append(replyElement); beep.play();},Math.random()*3000); 
-  if (messageLog.childElementCount > 7){
-    messageLog.children[0].remove();
-  }
   
 }
 
@@ -316,7 +279,22 @@ const expandM = () => {
   }
 }
 const expandNotes = () => {
+  if (notesWindow.classList.contains('container__monitor__popup__notes--fullscreen')){
+    notesWindow.classList.remove('container__monitor__popup__notes--fullscreen')
+    notesWindow.classList.add('drag')
+  } else {
+    notesWindow.classList.add('container__monitor__popup__notes--fullscreen')
+  }
 
+}
+
+const expandGallery = () => {
+  if (gallery.classList.contains('container__monitor__popup__photos--fullscreen')){
+    gallery.classList.remove('container__monitor__popup__photos--fullscreen')
+    gallery.classList.add('drag')
+  } else {
+    gallery.classList.add('container__monitor__popup__photos--fullscreen')
+  }
 }
 
 const hiddenMessage = () => {
@@ -371,6 +349,7 @@ const fullScreenM = document.querySelector('.container__monitor__popup__messenge
 const monitor = document.querySelector('.container__monitor__popup')
 const ref = document.getElementById('check');
 
+const notesExpand = document.querySelector('.container__monitor__popup__notes__controls__button--quack');
 const closeNotes = document.querySelector('.container__monitor__popup__notes__controls__button--close');
 const notesWindow = document.querySelector('.container__monitor__popup__notes');
 const notes = document.getElementById('notes');
@@ -378,7 +357,30 @@ const spotlight = document.querySelector('.container__monitor__popup__spotlight'
 const search = document.getElementById('search');
 search.addEventListener('click', () => {minimise(spotlight)})
 
+//Gallery Controls
+const photosIcon = document.getElementById('photosIcon');
+photosIcon.addEventListener('click', () => {minimise(gallery)})
 const gallery = document.getElementById('gallery');
+const galleryClose = document.querySelector('.container__monitor__popup__photos__controls__button--close')
+const galleryExpand = document.querySelector('.container__monitor__popup__photos__controls__button--quack')
+
+//Gallery
+const image1 = document.querySelector('.container__monitor__popup__photos__gallery__preview--1');
+const image2 = document.querySelector('.container__monitor__popup__photos__gallery__preview--2');
+const image3 = document.querySelector('.container__monitor__popup__photos__gallery__preview--3');
+const image4 = document.querySelector('.container__monitor__popup__photos__gallery__preview--4');
+
+const mainImage = document.getElementById('mainImage');
+
+const changeImage = (image) => {
+  mainImage.src = image.src;
+}
+
+
+image1.addEventListener('click', () => {changeImage(image1)});
+image2.addEventListener('click', () => {changeImage(image2)});
+image3.addEventListener('click', () => {changeImage(image3)});
+image4.addEventListener('click', () => {changeImage(image4)});
 
 gallery.style.visibility = 'hidden'
 //ref.style.visibility = 'hidden';
@@ -431,12 +433,16 @@ const notificationSound = new Audio('./audio/notification_sound_1.mp3')
 const victory = new Audio ('./audio/ffvii_victory.mp3')
 const rainbow = new Audio ('./audio/notification.mp3')
 
+dragElement(gallery);
 dragElement(messageBlock);
 dragElement(calcBody);
 dragElement(youtubePop);
 dragElement(notesWindow);
 
 //events
+notesExpand.addEventListener('click', expandNotes);
+galleryExpand.addEventListener('click', expandGallery)
+galleryClose.addEventListener('click', () => {minimise(gallery)})
 notes.addEventListener('click', () => {minimise(notesWindow)});
 closeNotes.addEventListener('click', () => {minimise(notesWindow)});
 fullScreenYT.addEventListener('click', expandYT);
