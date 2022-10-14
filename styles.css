@@ -297,7 +297,7 @@ body .container__monitor__nav__right__search__wifi {
 body .container__monitor__nav__dropdown {
   z-index: 3;
   position: absolute;
-  top: 33px;
+  top: 25px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -311,19 +311,19 @@ body .container__monitor__nav__dropdown {
   border-radius: 5px;
 }
 body .container__monitor__nav__dropdown--main {
-  left: 55px;
+  left: 40px;
 }
 body .container__monitor__nav__dropdown--file {
-  left: 132px;
+  left: 122px;
 }
 body .container__monitor__nav__dropdown--edit {
-  left: 170px;
+  left: 161px;
 }
 body .container__monitor__nav__dropdown--view {
-  left: 210px;
+  left: 202px;
 }
 body .container__monitor__nav__dropdown--help {
-  left: 257px;
+  left: 247px;
 }
 body .container__monitor__nav__dropdown__list {
   display: flex;

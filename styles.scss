@@ -158,7 +158,7 @@ body {
                 &__dropdown{
                     z-index: 3;
                     position: absolute;
-                    top: 33px;
+                    top: 25px;
                     @include mixins.flexing(row,center,left);
                     height: auto;
                     width: 130px;
@@ -168,19 +168,19 @@ body {
                     cursor: pointer;
                     border-radius: 5px;
                     &--main{
-                        left: 55px;
+                        left: 40px;
                     }
                     &--file{
-                        left: 132px;
+                        left: 122px;
                     }
                     &--edit{
-                        left: 170px;
+                        left: 161px;
                     }
                     &--view{
-                        left: 210px;
+                        left: 202px;
                     }
                     &--help{
-                        left: 257px;
+                        left: 247px;
                     }
 
                     &__list{
