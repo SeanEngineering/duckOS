@@ -143,7 +143,8 @@ const sendThis = () => {
     answerArray[0] = true;
     messageLog.append(newElement);
     notificationSound.currentTime=0;
-    setTimeout(function(){messageLog.append(replyElement); notificationSound.play();},Math.random()*3000); 
+    setTimeout(function(){messageLog.append(replyElement); notificationSound.play();key1.src="./icons/unlock.svg";},Math.random()*3000); 
+    
     checkAnswerCondition();
     return;
     // I think, therefore I am.
@@ -152,7 +153,8 @@ const sendThis = () => {
     answerArray[1] = true;
     messageLog.append(newElement);
     alertSound.currentTime=0;
-    setTimeout(function(){messageLog.append(replyElement); alertSound.play();},Math.random()*3000); 
+    setTimeout(function(){messageLog.append(replyElement); alertSound.play();key2.src="./icons/unlock.svg";},Math.random()*3000); 
+    
     checkAnswerCondition();
     return;
     //Nintendo
@@ -161,7 +163,8 @@ const sendThis = () => {
     replyElement.innerText = "Mario!";
     messageLog.append(newElement);
     marioBros.currentTime=0;
-    setTimeout(function(){messageLog.append(replyElement); marioBros.play();},Math.random()*3000); 
+    setTimeout(function(){messageLog.append(replyElement); marioBros.play();key3.src="./icons/unlock.svg";},Math.random()*3000); 
+    
     checkAnswerCondition();
     return;
 
@@ -171,8 +174,9 @@ const sendThis = () => {
     replyElement.innerText = "Origin of the brick";
     messageLog.append(newElement);
     nokia.currentTime=0;
-    setTimeout(function(){messageLog.append(replyElement); nokia.play();},Math.random()*3000); 
+    setTimeout(function(){messageLog.append(replyElement); nokia.play();key4.src="./icons/unlock.svg";},Math.random()*3000); 
     checkAnswerCondition();
+    
     return;
 
     //ivory
@@ -181,7 +185,8 @@ const sendThis = () => {
       answerArray[4] = true;
       messageLog.append(newElement);
       rainbow.currentTime=0;
-      setTimeout(function(){messageLog.append(replyElement); rainbow.play();},Math.random()*3000); 
+      setTimeout(function(){messageLog.append(replyElement); rainbow.play();key5.src="./icons/unlock.svg";},Math.random()*3000); 
+      
       checkAnswerCondition();
       return;
 
@@ -359,6 +364,13 @@ const notes = document.getElementById('notes');
 const spotlight = document.querySelector('.container__monitor__popup__spotlight');
 const search = document.getElementById('search');
 search.addEventListener('click', () => {minimise(spotlight)})
+
+//keys
+const key1 = document.getElementById('key1');
+const key2 = document.getElementById('key2');
+const key3 = document.getElementById('key3');
+const key4 = document.getElementById('key4');
+const key5 = document.getElementById('key5');
 
 //Gallery Controls
 const photosIcon = document.getElementById('photosIcon');

@@ -150,6 +150,19 @@ body .container__monitor__nav__top {
   align-items: center;
   margin-top: 5px;
 }
+body .container__monitor__nav__center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-right: 100px;
+  gap: 5px;
+  font-size: 12px;
+  margin-right: 10px;
+}
+body .container__monitor__nav__center__lock {
+  height: 15px;
+}
 body .container__monitor__nav__left {
   display: flex;
   flex-direction: row;
@@ -200,6 +213,9 @@ body .container__monitor__nav__right {
   gap: 5px;
   font-size: 12px;
   margin-right: 10px;
+}
+body .container__monitor__nav__right__lock {
+  height: 15px;
 }
 body .container__monitor__nav__right__search {
   display: flex;
@@ -891,8 +907,9 @@ body .container__monitor__popup__messenger__text__messages {
   width: 100%;
   height: 85%;
   background-color: white;
+  overflow-y: auto;
+  overflow-x: hidden;
   font-size: small;
-  overflow: auto;
 }
 body .container__monitor__popup__messenger__text__messages div {
   display: flex;
