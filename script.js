@@ -102,8 +102,14 @@ const focusCheck = () =>{
 }
 
 const minimise = (popupName) =>{
+  youtubePop.style.zIndex = 1;
+  messageBlock.style.zIndex = 1;
+  calcBody.style.zIndex = 1;
+  notesWindow.style.zIndex = 1;
+  gallery.style.zIndex = 1;
   if (popupName.style.visibility == 'hidden'){
       popupName.classList.remove('fade');
+      popupName.style.zIndex = 2;
       setTimeout(function(){popupName.style.visibility = 'visible';},100); 
       switch (true){
         case (popupName == youtubePop):
@@ -143,7 +149,7 @@ const sendThis = () => {
     answerArray[0] = true;
     messageLog.append(newElement);
     notificationSound.currentTime=0;
-    setTimeout(function(){messageLog.append(replyElement); notificationSound.play();key1.src="./icons/unlock.svg";},Math.random()*3000); 
+    setTimeout(function(){messageLog.append(replyElement); notificationSound.play();key1.src="./icons/unlock.svg"; key1.style.opacity="1";},Math.random()*3000); 
     
     checkAnswerCondition();
     return;
@@ -153,7 +159,7 @@ const sendThis = () => {
     answerArray[1] = true;
     messageLog.append(newElement);
     alertSound.currentTime=0;
-    setTimeout(function(){messageLog.append(replyElement); alertSound.play();key2.src="./icons/unlock.svg";},Math.random()*3000); 
+    setTimeout(function(){messageLog.append(replyElement); alertSound.play();key2.src="./icons/unlock.svg"; key2.style.opacity="1";},Math.random()*3000); 
     
     checkAnswerCondition();
     return;
@@ -163,7 +169,7 @@ const sendThis = () => {
     replyElement.innerText = "Mario!";
     messageLog.append(newElement);
     marioBros.currentTime=0;
-    setTimeout(function(){messageLog.append(replyElement); marioBros.play();key3.src="./icons/unlock.svg";},Math.random()*3000); 
+    setTimeout(function(){messageLog.append(replyElement); marioBros.play();key3.src="./icons/unlock.svg";key3.style.opacity="1";},Math.random()*3000); 
     
     checkAnswerCondition();
     return;
@@ -174,7 +180,7 @@ const sendThis = () => {
     replyElement.innerText = "Origin of the brick";
     messageLog.append(newElement);
     nokia.currentTime=0;
-    setTimeout(function(){messageLog.append(replyElement); nokia.play();key4.src="./icons/unlock.svg";},Math.random()*3000); 
+    setTimeout(function(){messageLog.append(replyElement); nokia.play();key4.src="./icons/unlock.svg"; key4.style.opacity="1";},Math.random()*3000); 
     checkAnswerCondition();
     
     return;
@@ -185,7 +191,7 @@ const sendThis = () => {
       answerArray[4] = true;
       messageLog.append(newElement);
       rainbow.currentTime=0;
-      setTimeout(function(){messageLog.append(replyElement); rainbow.play();key5.src="./icons/unlock.svg";},Math.random()*3000); 
+      setTimeout(function(){messageLog.append(replyElement); rainbow.play();key5.src="./icons/unlock.svg"; key5.style.opacity="1";},Math.random()*3000); 
       
       checkAnswerCondition();
       return;
