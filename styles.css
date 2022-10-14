@@ -136,7 +136,7 @@ body .container__welcome {
   height: inherit;
   width: inherit;
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(128, 128, 128, 0.8);
   gap: 5px;
 }
 body .container__welcome__login {

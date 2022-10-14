@@ -65,7 +65,7 @@ const welcomeScreen = () =>{
   setTimeout(()=>{
     welcomeDisplay.style.visibility = 'hidden';
     document.querySelector('.container__monitor').style.filter = 'none';
-  },600);
+  },900);
 }
 //welcomeDisplay.addEventListener('click', welcomeScreen);
 document.querySelector('.container__welcome__login').addEventListener('keypress', function enterPress(e){
