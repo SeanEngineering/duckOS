@@ -264,9 +264,11 @@ const dragElement = (elem) => {
 const expandYT = () => {
   if (youtubePop.classList.contains('container__monitor__popup__youtube--fullscreen')){
     youtubePop.classList.remove('container__monitor__popup__youtube--fullscreen')
+    contentYoutube.style.height = '400px';
     youtubePop.classList.add('drag')
   } else {
     youtubePop.classList.add('container__monitor__popup__youtube--fullscreen')
+    contentYoutube.style.height = 'inherit';
   }
 }
 
@@ -329,6 +331,7 @@ const menuControl = (valueID) => {
   }
 }
 
+const contentYoutube = document.querySelector(".container__monitor__popup__youtube__content")
 const aboutThis = document.querySelector('.container__monitor__nav__left__icon--OS');
 const youtubePop = document.getElementById('youtube');
 const safari = document.getElementById('safari');

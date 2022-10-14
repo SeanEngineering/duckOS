@@ -303,12 +303,15 @@ body {
                         }
                         &__input{
                             @include mixins.flexing(row,center,center);
-                            width: 100%;
+                            width: 40%;
+                            max-width: 500px;
                             &__text{
+                                width: 100%;
                                 @include mixins.flexing(row,center,center);
                                 border: 1px solid black;
                                 &__form{
                                     @include mixins.flexing(row,center,center);
+                                    width: 100%;
                                     color: gray;
                                     border: none;
                                     &:focus{
@@ -350,28 +353,27 @@ body {
                         @include mixins.flexing(row, space-around, start);
                         padding-top: 10px;
                         background-color: palette.$topBar-light;
-                        height: inherit;
+                        height: 400px;
+                        overflow-y: auto;
+                        overflow-x: hidden;
                         border-bottom-left-radius: 5px;
                         border-bottom-right-radius: 5px;
+
                         
                         &__main{
-                            
                             @include mixins.flexing(column, flex-start, start);
                             height: 98%;
-                            width: 65%;
+                            width: 60%;
                             background-color: palette.$topBar-light;
                             &__video{
-                            margin-left: 2%;
                             height: 60%;
-                            width: 80%;
-                        
+                            width: 95%;
                             }
                             &__desc{
                                 @include mixins.flexing(column, space-between, start);
                                 width: 300px;
                                 color: black;
                                 margin-top: 5px;
-                                margin-left: 2%;
                                 
                                 &__heading{
                                     padding: 0px;
@@ -387,11 +389,128 @@ body {
                                     }
                                 }
                             }
+                            &__creator{
+                                @include mixins.flexing(row, center, center);
+                                margin-top: 5px;
+                                width: 94%;
+                                height: 30px;
+                                font-size: small;
+
+                                border: 1px solid rgba($color: gray, $alpha: 0.5);
+                                border-radius: 1px;
+                                &__description{
+                                    &--main{
+                                        font-weight: 500px;
+                                    }
+                                    &--sub{
+                                        color: gray;
+                                    }
+                                }
+                                &__profile{
+                                    @include mixins.flexing(row, center, center);
+                                    margin-left: 2px;
+                                    margin-right: 10px;
+                                   
+                                  
+                                    img{
+                                        height: 24px;
+                                        background-color: rgba($color: peachpuff, $alpha: .5);
+                                        border-radius: 12px;
+                                        border: 1px solid black;
+                                    }
+                                }
+                                &__subscribe{
+                                    @include mixins.flexing(row, center, center);
+                                    margin-left: auto;
+                                    margin-right: 2px;
+                                    text-align: center;
+                                    border-radius: 3px;
+                                    color: white;
+                                    ////font-stretch: expanded;
+                                    height: 26px;
+                                    width: 90px;
+                                    background-color: red;
+                                }
+                            }
+                            &__comments{
+                                height: 10%;
+
+                                width: 95%;
+                                &__top{
+                                    margin-top: 10px;
+                                    width: 100%;
+                                    @include mixins.flexing(row, flex-start, center);
+                                    font-size: 12px;
+                                    color: rgba($color: black, $alpha: 0.8);
+                                    gap: 10px;
+                                    .cloud{
+                                        margin-left: auto;
+                                        margin-right: 5px;
+                                        height: 30px;  
+                                    }
+                                    span{
+                                        img{
+                                            height: 8px;
+                                        }
+                                    }
+
+                                }
+                                &__input{
+                                    margin-top: 10px;
+                                    @include mixins.flexing(row, start, center);
+                                    margin-top: 2px;
+                                    img{
+                                        height: 20px;
+                                        margin-right: 5px;
+                                        margin-left: 2px;
+                                    }
+                                    input{
+                                        background-color: rgba($color: white, $alpha: 0);
+                                        border-radius: none;
+                                        border: none;
+                                        border-bottom: 1px solid rgba($color: gray, $alpha: 0.7);
+                                        width: 90%;
+                                        &:focus{
+                                            outline: none;
+                                        }
+                                    }
+
+                                }
+                                &__bottom{
+                                    &__reply{
+                                        margin-top: 15px;
+                                        @include mixins.flexing(row, start, center);
+                                        img{
+                                            height: 30px;
+                                            border-radius: 15px;
+
+                                        }
+                                        &__user{
+                                            padding-left: 10px;
+                                            font-size: small;
+                                            gap: 5px;
+                                            &--title {
+                                                span{
+                                                    padding-left: 5px;
+                                                    font-size: smaller;
+                                                    color: gray;
+                                                }
+                                            }
+                                            &--comment{
+                                                margin-top: 5px;
+                                                font-size: smaller;
+                                            }
+                                        }
+                                    }
+                                }
+                               
+                            }
+                            
 
                         }
                         &__second{
                             @include mixins.flexing(column, space-between, center);
-                            width: 35%;
+                            width: 30%;
                             height: 98%;
                             //background-color: red;
                             gap: 5px;
@@ -399,29 +518,27 @@ body {
 
                             &__vidContainer{
                                 height: 20%;
-                                width: 100%;
-                                margin-right: 30px;
+                                width: 90%;
+                                margin-right: 15%;
                                 @include mixins.flexing(row, center, center);
                                 &__preview{
                                     max-height: 95%;
                                     height: 100%;
                                     min-height: 71px;
-                                    width: 30%;
-                                    min-width: 100px;
+                                    width: 70%;
+                                    min-width: 90px;
                                 }
                                 &__description{
                                     height: 15%;
-                                    width: 30%;
+                                    width: 100%;
                                     min-width: 100px;
-
-
                                     @include mixins.flexing(column, start, start);
                                     margin-top: 0;
                                     margin-bottom: 0;
                                     margin-left: 5px;
                                     padding: 0px;
                                     font-size: small;
-                                    h5 {font-size: 9px; padding: 0px; margin-top: 0;
+                                    h5 {font-size: 10px; padding: 0px; margin-top: 0;
                                         margin-bottom: 4px;}
                                     p {font-size: 8px;margin-top: 0px; padding: 0px; margin-top: 0;
                                         margin-bottom: 0; color: gray;}
