@@ -4,7 +4,7 @@
 @use "./modules/calculator.scss";
 
 @keyframes flip {
-    0%,20% {
+    0%,30% {
       transform: rotateY(360deg) 
     }
 }
@@ -45,7 +45,7 @@ body {
                 position: relative;
                 display: inline-block;
                 font-size: 50px;
-                animation: flip 5s infinite;
+                animation: flip 3s infinite;
                 animation-delay: calc(.2s * var(--i));
                 color: white;
             }
