@@ -646,12 +646,13 @@ body .container__monitor__popup__youtube__content__main__creator {
   align-items: center;
   margin-top: 5px;
   width: 94%;
-  height: 30px;
+  height: 35px;
   font-size: small;
   border: 1px solid rgba(128, 128, 128, 0.5);
   border-radius: 1px;
 }
 body .container__monitor__popup__youtube__content__main__creator__description--main {
+  margin-top: 2px;
   font-weight: 500px;
 }
 body .container__monitor__popup__youtube__content__main__creator__description--sub {
