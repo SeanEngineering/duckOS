@@ -57,6 +57,23 @@ const showTime = () =>{
 }
 setInterval(showTime,1000);
 showTime();
+
+const welcomeScreen = () =>{
+    const welcomeDisplay = document.querySelector('.container__welcome');
+    welcomeDisplay.style.transition = '1s';
+    welcomeDisplay.style.opacity = '0';
+  setTimeout(()=>{
+    welcomeDisplay.style.visibility = 'hidden';
+    document.querySelector('.container__monitor').style.filter = 'none';
+  },600);
+}
+//welcomeDisplay.addEventListener('click', welcomeScreen);
+document.querySelector('.container__welcome__login').addEventListener('keypress', function enterPress(e){
+  if (e.which==13){
+    welcomeScreen();
+  }
+});
+
 const focusCheck = () =>{
   youtubePop.addEventListener('click', () => {ref.innerText = 'Safari'});
   messageBlock.addEventListener('click', () => {ref.innerText = 'Messenger'});

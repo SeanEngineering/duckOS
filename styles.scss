@@ -3,6 +3,12 @@
 @use "./partials/effects";
 @use "./modules/calculator.scss";
 
+@keyframes flip {
+    0%,20% {
+      transform: rotateY(360deg) 
+    }
+}
+
 body {
     @include mixins.flexing(column, center, center);
     font-family: 'roboto',avenir, Arial, Helvetica, sans-serif;
@@ -12,7 +18,45 @@ body {
         @include mixins.flexing(row, center, center);
         width: inherit;
         height: inherit;
+        &__welcome{
+            cursor: pointer;
+            margin: 10px;
+            @include mixins.flexing(column, center, center);
+            z-index: 6;
+            height: inherit;
+            width: inherit;
+            position: absolute;
+            background-color: rgba($color: black, $alpha: 0.8);
+            gap: 5px;
+            &__login{
+                background-color: rgba($color: white, $alpha: 0.9);
+                height: 20px;
+                border-radius: 3px;
+                border: none;
+                &:focus{
+                    outline: none;
+                }
+            }
+            &__top{
+                @include mixins.flexing(row, center, center);
+            }
+            &__letter{
+                font-family: 'Nanum Myeong';
+                position: relative;
+                display: inline-block;
+                font-size: 50px;
+                animation: flip 5s infinite;
+                animation-delay: calc(.2s * var(--i));
+                color: white;
+            }
+            img {
+                height: 100px;
+                border-radius: 50px;
+            }
+        }
         &__monitor{
+            position: absolute;
+            filter: blur(10px);
             height: inherit;
             width: inherit;
             @include mixins.flexing(column, space-between, center);
@@ -183,6 +227,7 @@ body {
                 border-radius: 20px;
                 opacity: 100%;
                 position: absolute;
+                margin-bottom: 5px;
                 bottom: 1%;
                 &__icon{
                     height: 50px;
@@ -190,6 +235,7 @@ body {
                     opacity: 100%;
                     transition: 0.2s;
                     &:hover{
+                        position: relative;
                         width: 100px;
                         height: 100px;
                         margin-bottom: 30px;

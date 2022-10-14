@@ -103,6 +103,11 @@
   font-size: medium;
 }
 
+@keyframes flip {
+  0%, 20% {
+    transform: rotateY(360deg);
+  }
+}
 body {
   display: flex;
   flex-direction: column;
@@ -120,7 +125,51 @@ body .container {
   width: inherit;
   height: inherit;
 }
+body .container__welcome {
+  cursor: pointer;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 6;
+  height: inherit;
+  width: inherit;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+  gap: 5px;
+}
+body .container__welcome__login {
+  background-color: rgba(255, 255, 255, 0.9);
+  height: 20px;
+  border-radius: 3px;
+  border: none;
+}
+body .container__welcome__login:focus {
+  outline: none;
+}
+body .container__welcome__top {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+body .container__welcome__letter {
+  font-family: "Nanum Myeong";
+  position: relative;
+  display: inline-block;
+  font-size: 50px;
+  animation: flip 5s infinite;
+  animation-delay: calc(0.2s * var(--i));
+  color: white;
+}
+body .container__welcome img {
+  height: 100px;
+  border-radius: 50px;
+}
 body .container__monitor {
+  position: absolute;
+  filter: blur(10px);
   height: inherit;
   width: inherit;
   display: flex;
@@ -325,6 +374,7 @@ body .container__monitor__bar {
   border-radius: 20px;
   opacity: 100%;
   position: absolute;
+  margin-bottom: 5px;
   bottom: 1%;
 }
 body .container__monitor__bar__icon {
@@ -334,6 +384,7 @@ body .container__monitor__bar__icon {
   transition: 0.2s;
 }
 body .container__monitor__bar__icon:hover {
+  position: relative;
   width: 100px;
   height: 100px;
   margin-bottom: 30px;
