@@ -162,6 +162,7 @@ body .container__monitor__nav__center {
 }
 body .container__monitor__nav__center__lock {
   height: 15px;
+  opacity: 50%;
 }
 body .container__monitor__nav__left {
   display: flex;
