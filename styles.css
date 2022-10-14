@@ -104,7 +104,7 @@
 }
 
 @keyframes flip {
-  0%, 30% {
+  0%, 80% {
     transform: rotateY(360deg);
   }
 }
@@ -155,11 +155,15 @@ body .container__welcome__top {
   align-items: center;
 }
 body .container__welcome__letter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   font-family: "Nanum Myeong";
   position: relative;
   display: inline-block;
   font-size: 50px;
-  animation: flip 3s infinite;
+  animation: flip 4s infinite;
   animation-delay: calc(0.2s * var(--i));
   color: white;
 }

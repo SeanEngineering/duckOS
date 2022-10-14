@@ -4,9 +4,9 @@
 @use "./modules/calculator.scss";
 
 @keyframes flip {
-    0%,30% {
-      transform: rotateY(360deg) 
-    }
+    0%,80% {
+      transform: rotateY(360deg);
+    };
 }
 
 body {
@@ -18,6 +18,9 @@ body {
         @include mixins.flexing(row, center, center);
         width: inherit;
         height: inherit;
+        div {
+            
+        }
         &__welcome{
             cursor: pointer;
             margin: 10px;
@@ -41,11 +44,12 @@ body {
                 @include mixins.flexing(row, center, center);
             }
             &__letter{
+                @include mixins.flexing(column, center, center);
                 font-family: 'Nanum Myeong';
                 position: relative;
                 display: inline-block;
                 font-size: 50px;
-                animation: flip 3s infinite;
+                animation: flip 4s infinite;
                 animation-delay: calc(.2s * var(--i));
                 color: white;
             }
