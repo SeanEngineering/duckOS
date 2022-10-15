@@ -362,6 +362,11 @@ body .container__monitor__nav__dropdown__list__items--underline {
   margin-right: 5px;
   border-bottom: 1px solid gray;
 }
+body .container__monitor__nav__dropdown__list__items a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
 body .container__monitor__bar {
   z-index: 2;
   display: flex;
