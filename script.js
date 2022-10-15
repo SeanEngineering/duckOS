@@ -203,8 +203,8 @@ const sendThis = () => {
     return;
 
     //ivory
-    case (newElement.innerText.toLowerCase() == 'ivory'):
-      replyElement.innerText = "Colour correction";
+    case (newElement.innerText.toLowerCase() == 'artifact'):
+      replyElement.innerText = "That one took a while to dig up 🏛";
       answerArray[4] = true;
       messageLog.append(newElement);
       rainbow.currentTime=0;
@@ -328,12 +328,10 @@ const expandGallery = () => {
 }
 
 const hiddenMessage = () => {
-  const colorArray = ['#4B0082', '#9400D3', '#FF7F00', '#FF0000', '#FFFF00'];
   let code = [];
-  for (let i = 1; i < 6; i++){
+  for (let i = 1; i < 9; i++){
       code.push(parseInt(Math.random()*16).toString(16));
       document.getElementById(`code${i}`).innerHTML += ` ${code[i-1]} weeks ago`;
-      document.querySelector(`.container__monitor__popup__youtube__content__second__vidContainer__preview--${i}`).style.backgroundColor = colorArray[i-1];
   }
   return code.join('');
 }
