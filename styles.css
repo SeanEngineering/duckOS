@@ -367,6 +367,13 @@ body .container__monitor__nav__dropdown__list__items a {
   color: black;
   font-weight: bold;
 }
+body .container__monitor__nav__dropdown--calendar {
+  right: 2px;
+  border-radius: 10px;
+  height: 300px;
+  width: 300px;
+  background-color: white;
+}
 body .container__monitor__bar {
   z-index: 2;
   display: flex;
@@ -1184,6 +1191,11 @@ body .container__monitor__popup__photos__controls {
   width: inherit;
   margin-left: 10px;
 }
+body .container__monitor__popup__photos__controls__title {
+  margin-right: auto;
+  font-size: small;
+  color: gray;
+}
 body .container__monitor__popup__photos__controls__button {
   height: 12px;
   width: 12px;
@@ -1210,6 +1222,7 @@ body .container__monitor__popup__photos__controls__button--minimise {
 body .container__monitor__popup__photos__controls__button--quack {
   background-color: rgb(33, 172, 33);
   font-size: medium;
+  margin-right: auto;
 }
 body .container__monitor__popup__photos__gallery {
   display: flex;

@@ -57,17 +57,19 @@ const showTime = () =>{
 }
 setInterval(showTime,1000);
 showTime();
-
+const welcomeDisplay = document.querySelector('.container__welcome');
 const welcomeScreen = () =>{
-    const welcomeDisplay = document.querySelector('.container__welcome');
-    welcomeDisplay.style.transition = '1s';
+    welcomeDisplay.style.transition = '0.2s';
+    document.querySelector('.container__monitor').style.filter = 'none';
     welcomeDisplay.style.opacity = '0';
   setTimeout(()=>{
     welcomeDisplay.style.visibility = 'hidden';
-    document.querySelector('.container__monitor').style.filter = 'none';
-  },900);
+  },400);
 }
-//welcomeDisplay.addEventListener('click', welcomeScreen);
+//Debugging Commands
+//welcomeDisplay.style.visibility = 'hidden';
+//document.querySelector('.container__monitor').style.filter = 'none';
+
 document.querySelector('.container__welcome__login').addEventListener('keypress', function enterPress(e){
   if (e.which==13){
     welcomeScreen();
@@ -410,6 +412,24 @@ const mainImage = document.getElementById('mainImage');
 
 const changeImage = (image) => {
   mainImage.src = image.src;
+  let imageTitle = 'Image '
+  switch (true){
+    case (image == image1):
+      imageTitle += '1 of 4';
+      console.log(imageTitle);
+      break;
+    case(image == image2):
+      imageTitle += '2 of 4';
+      break;
+    case(image == image3):
+      imageTitle += '3 of 4';
+      break;
+    case(image == image4):
+      imageTitle += '4 of 4';
+      break;
+  }
+  console.log(imageTitle);
+  document.querySelector('.container__monitor__popup__photos__controls__title').innerText = imageTitle;
 }
 
 
