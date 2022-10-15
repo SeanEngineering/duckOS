@@ -4,7 +4,7 @@
 @use "./modules/calculator.scss";
 
 @keyframes flip {
-    0%,80% {
+    0%,20% {
       transform: rotateY(360deg);
     };
 }
@@ -473,7 +473,7 @@ body {
                                 border: 1px solid rgba($color: gray, $alpha: 0.5);
                                 border-radius: 5px;
                                 &__commentSnip{
-                                    @include mixins.flexing(column, center, start);
+                                    @include mixins.flexing(column, center, center);
                                     height: 30px;
                                     border-right: 1px solid gray;
                                     padding-right: 10px;

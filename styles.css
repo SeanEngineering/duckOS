@@ -104,7 +104,7 @@
 }
 
 @keyframes flip {
-  0%, 80% {
+  0%, 20% {
     transform: rotateY(360deg);
   }
 }
@@ -673,7 +673,7 @@ body .container__monitor__popup__youtube__content__main__creator__commentSnip {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: start;
+  align-items: center;
   height: 30px;
   border-right: 1px solid gray;
   padding-right: 10px;
