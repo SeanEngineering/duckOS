@@ -268,8 +268,8 @@ body .container__monitor__nav__right {
   font-size: 12px;
   margin-right: 10px;
 }
-body .container__monitor__nav__right__lock {
-  height: 15px;
+body .container__monitor__nav__right #time, body .container__monitor__nav__right #date {
+  cursor: pointer;
 }
 body .container__monitor__nav__right__search {
   display: flex;
@@ -367,13 +367,6 @@ body .container__monitor__nav__dropdown__list__items a {
   color: black;
   font-weight: bold;
 }
-body .container__monitor__nav__dropdown--calendar {
-  right: 2px;
-  border-radius: 10px;
-  height: 300px;
-  width: 300px;
-  background-color: white;
-}
 body .container__monitor__bar {
   z-index: 2;
   display: flex;
@@ -390,6 +383,7 @@ body .container__monitor__bar {
   border-radius: 20px;
   opacity: 100%;
   position: absolute;
+  align-self: center;
   margin-bottom: 5px;
   bottom: 1%;
 }
@@ -1289,4 +1283,75 @@ body .container__monitor__popup__photos__gallery__selected img:hover {
 .fade {
   opacity: 0;
   transition: 0.1s;
+}
+
+.calendar {
+  cursor: default;
+  z-index: 5;
+  position: absolute;
+  right: 2px;
+  top: 32px;
+  height: 200px;
+  width: 200px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0px;
+  padding: 0px;
+}
+.calendar__month {
+  width: 150px;
+  color: red;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
+.calendar__date {
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+}
+.calendar__date__day {
+  font-size: 12px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  height: 24px;
+  width: 24px;
+}
+.calendar__date__day--gray {
+  color: gray;
+}
+.calendar__day {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.calendar__day__row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.calendar__day__row__col {
+  font-size: 12px;
+  display: flex;
+  flex: row;
+  justify-content: center;
+  align-items: center;
+  height: 24px;
+  width: 24px;
+}
+.calendar__day__row__col--today {
+  background-color: rgba(255, 0, 0, 0.9);
+  color: white;
+  border-radius: 10px;
 }

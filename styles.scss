@@ -135,11 +135,9 @@ body {
                     gap: 5px;
                     font-size: 12px;
                     margin-right: 10px;
-                    &__lock{
-                        height: 15px;
-                       
+                    #time, #date{
+                        cursor: pointer;
                     }
-                   
                     &__search{
                         @include mixins.flexing(row,center,center);
                         &__img{
@@ -220,13 +218,6 @@ body {
                             }
                         }
                     }
-                    &--calendar{
-                        right: 2px;
-                        border-radius: 10px;
-                        height: 300px;
-                        width: 300px;
-                        background-color: white;
-                    }
                     
                 }
             }
@@ -243,6 +234,7 @@ body {
                 border-radius: 20px;
                 opacity: 100%;
                 position: absolute;
+                align-self: center;
                 margin-bottom: 5px;
                 bottom: 1%;
                 &__icon{
@@ -1058,4 +1050,79 @@ body {
 .fade {
     opacity: 0;
     transition: 0.1s;
+}
+
+.calendar{
+    cursor:default;
+    z-index: 5;
+    position: absolute;
+    right: 2px;
+    top: 32px;
+    height: 200px;
+    width: 200px;
+    background-color: rgba($color: white, $alpha: 0.8);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0px;
+    padding: 0px;
+    &__month{
+        width: 150px;
+        color: red;
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+    }
+    &__date{
+        margin: 0px;
+        padding: 0px;
+        display: flex;
+        flex-direction: row;
+        list-style-type: none;
+        &__day{
+            font-size: 12px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            list-style-type: none;
+            height: 24px;
+            width: 24px;
+            &--gray{
+                color: gray;
+            }
+        }
+    }
+    &__day{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    
+        &__row{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            &__col{
+                font-size: 12px;
+                display: flex;
+                flex: row;
+                justify-content: center;
+                align-items: center;
+                height: 24px;
+                width: 24px;
+              
+                &--today{
+                    background-color: rgba($color: red, $alpha: 0.9);
+                    color: white;
+                    border-radius: 10px;
+
+                    
+                }
+            }
+        }
+    }
 }

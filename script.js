@@ -451,6 +451,7 @@ const tableHide = () =>{
   editDropDown.style.visibility = 'hidden';
   viewDropDown.style.visibility = 'hidden';
   helpDropDown.style.visibility = 'hidden';
+  calendarApp.style.visibility = 'hidden';
 }
 
 //Drop Downs
@@ -672,3 +673,77 @@ class Calculator {
     calculator.delete()
     calculator.updateDisplay()
   })
+
+//Calendar
+const dateClick = document.getElementById('date');
+const timeClick = document.getElementById('time');
+const calendarApp = document.querySelector('.calendar');
+dateClick.addEventListener('click', () => {minimise(calendarApp)});
+timeClick.addEventListener('click', () => {minimise(calendarApp)});
+
+calendarApp.style.visibility = 'hidden';
+let time = new Date();
+let day = time.getDay();
+let date = time.getDate();
+let month = time.getMonth();
+let year = time.getFullYear();
+let monthDays = 31;
+
+let monthText;
+switch (month){
+    case (0): monthText = 'January'; break;
+    case (1): 
+        monthText = 'February'; 
+        if (year%4 == 0){
+            monthDays = 29;
+        } else {
+            monthDays = 28;
+        }
+        break;
+    case (2): monthText = 'March'; break;
+    case (3): monthText = 'April'; monthDays = 30; break;
+    case (4): monthText = 'May'; break;
+    case (5): monthText = 'June'; monthDays = 30;  break;
+    case (6): monthText = 'July'; break;
+    case (7): monthText = 'August'; break;
+    case (8): monthText = 'Septempber'; monthDays = 30; break;
+    case (9): monthText = 'October'; break;
+    case (10): monthText = 'November'; monthDays = 30; break;
+    case (11): monthText = 'December'; break;
+}
+
+document.querySelector('.calendar__month').innerText = monthText;
+
+const dayToNum = (day) => {
+    let dayConversion = day;
+    if (day == 0){
+        dayConversion = 7;
+    }
+    return dayConversion;
+}
+const calendarFill = (day,date) => {
+    let dayConversion = dayToNum(day);
+    let dayIncrement =  date%7;
+    while (dayIncrement != 1){
+        dayConversion--;
+        if (dayConversion == 0){
+            dayConversion = 7;
+        }
+        dayIncrement--;
+    }
+    for (let i = 0; i < monthDays; i++){
+        document.querySelector(`.calendar__day__row__col--${dayConversion + i}`).innerText = i+1;
+        if ((i+1) == date){
+            document.querySelector(`.calendar__day__row__col--${dayConversion + i}`).classList.add('calendar__day__row__col--today');
+        }
+    }
+    for (let i = 1; i < 37; i++){
+        if ((i%7 == 6 || i%7 == 0) && (document.querySelector(`.calendar__day__row__col--${i}`).innerText != date)){
+            document.querySelector(`.calendar__day__row__col--${i}`).style.color = 'gray';
+        }
+            
+    }
+
+}
+
+calendarFill(day,date);
