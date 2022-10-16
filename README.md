@@ -14,3 +14,13 @@ Memorable fixes and sections
 - Collapsing table whe clicked out
 - Selecting focus on app and output focus to nav
 - Auto generation of random code
+
+
+Resources:
+
+Icons: https://freeicons.io/icon-list/apple-logos-2
+Sound: https://www.zedge.net/
+Background: https://store.kde.org/p/1781392/
+Profiles: https://opensea.io
+
+Additional icons can be found at freeicons.io.
