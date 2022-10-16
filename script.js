@@ -738,10 +738,13 @@ const calendarFill = (day,date) => {
         }
     }
     for (let i = 1; i < 37; i++){
-        if ((i%7 == 6 || i%7 == 0) && (document.querySelector(`.calendar__day__row__col--${i}`).innerText != date)){
+        if (i%7 == 6 || i%7 == 0){
+          if (document.querySelector(`.calendar__day__row__col--${i}`).classList.contains('calendar__day__row__col--today')){
+          } else {
             document.querySelector(`.calendar__day__row__col--${i}`).style.color = 'gray';
+          } 
+        
         }
-            
     }
 
 }
