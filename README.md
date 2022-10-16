@@ -7,6 +7,7 @@ duckOS is mock version of the Mac OS.
 - Notes is operational
 - Photos is operational
 - Spotlight is operational
+- Calendar is Operational
 
 Memorable fixes and sections
 
