@@ -143,6 +143,9 @@ const minimise = (popupName) =>{
         case (popupName == notesWindow):
           main.innerText = 'Notes';
           break;
+        case (popupName == gallery):
+          main.innerText = 'Photos';
+          break;
       }
   } else {
       main.innerText = 'Finder';
