@@ -18,9 +18,6 @@ body {
         @include mixins.flexing(row, center, center);
         width: inherit;
         height: inherit;
-        div {
-            
-        }
         &__welcome{
             cursor: pointer;
             margin: 10px;
